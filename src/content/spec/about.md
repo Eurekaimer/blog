@@ -1,38 +1,40 @@
 # 关于我 / About Me
 
-你好！我是 **夏叶** ，一个在数字世界中默默无闻的一片叶子。
-
-## 🛠️ 关于本站
-
-这个网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发。
-
-**Firefly** 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
-
-
-**🖥️在线预览： [Firefly - Demo site](https://firefly.cuteleaf.cn/)**
-
-**🏠我的博客： [https://blog.cuteleaf.cn](https://blog.cuteleaf.cn/)**
-
-**📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
-
-**⭐Firefly开源地址：[https://github.com/CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)** 
-
-**⭐Fuwari开源地址：[https://github.com/saicaca/fuwari](https://github.com/saicaca/fuwari)**
-
-::github{repo="CuteLeaf/Firefly"}
-
-::github{repo="saicaca/fuwari"}
-
-
-## 📫 联系方式
-
-如果你想和我交流技术问题，分享有趣的想法，或者只是想打个招呼，欢迎通过以下方式联系我：
-
-- 💻 **GitHub**: [CuteLeaf](https://github.com/CuteLeaf)
-- ✉️ **Email**: [xiaye@msn.com](mailto:xiaye@msn.com)
-- 🐧 **QQ交流群：[1087127207](https://qm.qq.com/q/ZGsFa8qX2G)**
+你好，这里是 **知歌**  
+欢迎来到我的日记站点
 
 ---
 
-*感谢你的来访！希望在这里能找到对你有用的内容！*
+## 🍂 关于本站
 
+建立这个站点的原因不是为了去折腾博客技术(事实上，这个站点所使用的美化功能已经有些超出我的阈值了)，而是为了把那些碎片化的思考和关于百合文化的内容都提取出来，然后转换为博客记录。之所以不使用原先的 **MkDocs** 站点是因为它的功能有些局限而且所使用的主题也不再更新，目前我已经将主要的笔记内容迁移到了 **Zensical** 框架，但是由于其还未开发出博客功能(即使开发出来，我想我也会更加青睐现有的 **Astro** 吧，毕竟美化的细节是比较到位的也比较简单)。
+
+总而言之，目前的情况就是我会把博客内容逐步迁移到这里(最后会变成新的 *Eurekaimer.icu* ，然后原先的站点就会被废弃和转换为纯粹的笔记站点(关于动漫的评价插件我还在思考如何处理)，应该会尽可能结合Bangumi的内容使用，尝试迁移原本的css格式进入这里。最后本站应该会变成下面的样子：
+
+- **百合 (Yuri)**  
+  本站的灵魂所在。  
+  我会在这里记录少女之间如呼吸般细腻的情感、那些令人心颤的瞬间，以及对百合作品的私家解读。
+
+- **数字碎碎念**  
+  偶尔会留下关于 NixOS 的折腾笔记，或是对某段代码的执念。  
+  在这套逻辑严密的系统之中，我尝试构建属于自己的秩序。
+
+- **生活切片**  
+  更像是一个长文版的“朋友圈”。  
+  没有算法推荐，只有不期而遇的共鸣。
+
+> 💡 **寻路指引**  
+> 如果你是为了寻找 **统计学** 等学术内容，  
+> 请移步我的另一处[平行站点](https://www.Eurekaimer.icu/Stathelper)
+
+---
+
+## 🎨 灵魂碎片
+
+- **Eurekaimer**  
+  这是三次元的我，是一位在严谨的统计逻辑与感性的百合世界之间反复横跳的观测者
+
+- **NixOS Traveler**  
+  这是我目前在探索Linux世界中扮演的角色，我认为比起现成的稳定，亲手构建的确定性更加珍贵
+
+*“在万物相连的时代，很高兴能在这里与你擦肩而过。”*

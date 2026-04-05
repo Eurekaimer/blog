@@ -12,6 +12,10 @@ if (!siteConfig.pages.gallery) {
 	return Astro.redirect("/404/");
 }
 
+// --- 路径规范化处理 ---
+// 获取 base 并去掉结尾的斜杠，确保拼接时不会出现 //
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const title = i18n(I18nKey.gallery);
 const description = i18n(I18nKey.galleryDescription);
 
