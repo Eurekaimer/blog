@@ -38,7 +38,7 @@ import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
 export default defineConfig({
 	site: "https://www.eurekaimer.icu",
 	
-	base: "/Astro-Firefly",
+	base: "/blog",
 	trailingSlash: "always",
 
 	// 图像优化配置

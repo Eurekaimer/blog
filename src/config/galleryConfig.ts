@@ -21,6 +21,15 @@ export const galleryConfig: GalleryConfig = {
 			date: "2026-01-01",
 			tags: ["崩坏星穹铁道", "流萤"],
 		},
+		{
+			id: "travel-shanghai",
+			name: "上海之旅",
+			description: "上海的美好回忆",
+			location: "上海",
+			date: "2025-04-10",
+			tags: ["旅行", "上海"],
+			cover: "/gallery/travel-shanghai/cover.jpg",
+		},
 	],
 
 	// 瀑布流最小列宽(px)，浏览器根据容器宽度自动计算列数，默认 240

@@ -9,35 +9,42 @@ import { siteConfig } from "./siteConfig";
 
 // 根据页面开关动态生成导航栏配置
 const getDynamicNavBarConfig = (): NavBarConfig => {
-	// 基础导航栏链接
-	const links: (NavBarLink | LinkPreset)[] = [
-		// 主页
-		LinkPreset.Home,
+    // 基础导航栏链接
+    const links: (NavBarLink | LinkPreset)[] = [
+        // 主页
+        LinkPreset.Home,
 
-		// 归档
-		LinkPreset.Archive,
-	];
+        // 归档
+        LinkPreset.Archive,
+    ];
 
-	// 根据配置决定是否添加友链，在siteConfig关闭pages.friends时导航栏不显示友链
-	if (siteConfig.pages.friends) {
-		links.push(LinkPreset.Friends);
-	}
+    // 根据配置决定是否添加友链，在siteConfig关闭pages.friends时导航栏不显示友链
+    if (siteConfig.pages.friends) {
+        links.push(LinkPreset.Friends);
+    }
 
-	// 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
-	if (siteConfig.pages.guestbook) {
-		links.push(LinkPreset.Guestbook);
-	}
+    // 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
+    if (siteConfig.pages.guestbook) {
+        links.push(LinkPreset.Guestbook);
+    }
 
-	if (siteConfig.pages.bangumi) {
-		links.push(LinkPreset.Bangumi);
-	}
+    // 【新增】根据配置决定是否添加相册（与番组计划平行）
+    if (siteConfig.pages.gallery) {
+        links.push(LinkPreset.Gallery);
+    }
 
-	if (siteConfig.pages.about !== false) {
-		links.push(LinkPreset.About);
-	}
+    // 根据配置决定是否添加番组计划
+    if (siteConfig.pages.bangumi) {
+        links.push(LinkPreset.Bangumi);
+    }
 
-	// 仅返回链接，其它导航搜索相关配置在模块顶层常量中独立导出
-	return { links } as NavBarConfig;
+    // 根据配置决定是否添加关于页面
+    if (siteConfig.pages.about !== false) {
+        links.push(LinkPreset.About);
+    }
+
+    // 仅返回链接，其它导航搜索相关配置在模块顶层常量中独立导出
+    return { links } as NavBarConfig;
 };
 
 // 导航搜索配置
