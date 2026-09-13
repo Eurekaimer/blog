@@ -5,7 +5,7 @@ export const galleryConfig: GalleryConfig = {
 	// 相册列表
 	albums: [
 		// 支持jpg/png/webp/avif/gif格式
-		// id: 相册唯一标识符（用于目录命名和URL路径），比如设置：id: "firefly-2026", 对应 public/gallery/firefly-2026/目录
+		// id: 相册唯一标识符（用于目录命名和URL路径），比如设置：id: "liz-and-blue-bird", 对应 public/gallery/liz-and-blue-bird/目录
 		// cover: 手动指定封面图（可选，不填会把cover.*文件作为封面图，如果没有cover.*文件，则使用第一张图片作为封面图）
 		// name: 相册名称
 		// description: 相册描述
@@ -14,21 +14,13 @@ export const galleryConfig: GalleryConfig = {
 		// tags: 相册标签，用于分类和过滤
 		// 每添加一个数组项就相当于添加了一个相册，记得在 public/gallery/ 目录下创建对应的子目录并放入图片
 		{
-			id: "firefly-2026",
-			name: "流萤",
-			description: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
-			location: "崩坏：星穹铁道",
-			date: "2026-01-01",
-			tags: ["崩坏星穹铁道", "流萤"],
-		},
-		{
-			id: "travel-shanghai",
-			name: "上海之旅",
-			description: "上海的美好回忆",
-			location: "上海",
-			date: "2025-04-10",
-			tags: ["旅行", "上海"],
-			cover: "/gallery/travel-shanghai/cover.jpg",
+			id: "liz-and-blue-bird",
+			name: "莉兹与青鸟",
+			description:
+				"改编自《吹响！上低音号》的剧场版动画，描绘铠冢霙与伞木希美之间纤细摇曳的距离。",
+			date: "2026-09-13",
+			tags: ["莉兹与青鸟", "京都动画"],
+			cover: "/gallery/liz-and-blue-bird/liz-and-blue-bird-18.jpg",
 		},
 	],
 
