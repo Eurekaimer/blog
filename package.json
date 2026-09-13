@@ -16,6 +16,7 @@
 		"preinstall": "npx only-allow pnpm",
 		"icons": "node scripts/generate-icons.js",
 		"steam:history": "node scripts/update-steam-history.mjs",
+		"test:data": "node scripts/test-steam-history.mjs",
 		"manga:sync": "node scripts/sync-koma-bell-progress.mjs"
 	},
 	"dependencies": {

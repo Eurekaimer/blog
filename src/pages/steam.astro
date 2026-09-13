@@ -1,11 +1,16 @@
 ---
 import { Icon } from "astro-icon/components";
 import { siteConfig } from "@/config";
+import steamHistory from "@/data/steam-history.json";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import { formatDateI18nWithTime } from "@/utils/date-utils";
-import steamHistory from "@/data/steam-history.json";
+import {
+	maxGapDays,
+	selectWindow,
+	toHistoryEntries,
+} from "@/utils/steam-history.mjs";
 
 if (!siteConfig.pages.steam) {
 	return Astro.redirect("/404/");
@@ -343,41 +348,9 @@ function getDateKeyInTimeZone(date = new Date()) {
 	return `${values.year}-${values.month}-${values.day}`;
 }
 
-function parseDateKey(dateKey: string) {
-	const [year, month, day] = dateKey.split("-").map(Number);
-	if (!year || !month || !day) return Number.NaN;
-	return Date.UTC(year, month - 1, day);
-}
-
 function formatShortDate(dateKey: string) {
 	const [, month, day] = dateKey.split("-");
 	return `${month}/${day}`;
-}
-
-function normalizeHistorySnapshots(
-	snapshots: SteamHistorySnapshot[],
-	current?: SteamHistorySnapshot,
-) {
-	const byDate = new Map<string, SteamHistorySnapshot>();
-
-	for (const snapshot of snapshots) {
-		if (
-			!snapshot?.date ||
-			!Number.isFinite(snapshot.totalPlayMinutes) ||
-			Number.isNaN(parseDateKey(snapshot.date))
-		) {
-			continue;
-		}
-		byDate.set(snapshot.date, snapshot);
-	}
-
-	if (current) {
-		byDate.set(current.date, current);
-	}
-
-	return Array.from(byDate.values()).sort((a, b) =>
-		a.date.localeCompare(b.date),
-	);
 }
 
 function getSnapshotDeltas(snapshots: SteamHistorySnapshot[]) {
@@ -478,6 +451,7 @@ function buildTrendChart(
 			: [{ date: "", label: "--", minutes: 0 }];
 	const maxMinutes = Math.max(60, ...rawPoints.map((point) => point.minutes));
 	const baseline = chartPadding.top + plotHeight;
+	// 窗口已经保证是连续数据（见 selectWindow），所以等距排布即可，不需要按天数比例换算。
 	const points = rawPoints.map((point, index) => {
 		const x =
 			chartPadding.left +
@@ -561,13 +535,21 @@ const currentHistorySnapshot =
 					: undefined,
 			}
 		: undefined;
-const historySnapshots = normalizeHistorySnapshots(
-	steamHistory as SteamHistorySnapshot[],
-	currentHistorySnapshot,
+// 数据文件已按日期排序；构建时如果取到了实时数据，就覆盖当天那一条。
+const historySnapshots = toHistoryEntries(
+	currentHistorySnapshot
+		? [
+				...toHistoryEntries(steamHistory).filter(
+					(entry) => entry.date !== currentHistorySnapshot.date,
+				),
+				currentHistorySnapshot,
+			]
+		: steamHistory,
 );
+// 只在最新的连续数据里取窗口，避免断档被连成一条假曲线。
 const trendCharts = [
-	buildTrendChart(historySnapshots, 7),
-	buildTrendChart(historySnapshots, 30),
+	buildTrendChart(selectWindow(historySnapshots, 7, maxGapDays), 7),
+	buildTrendChart(selectWindow(historySnapshots, 30, maxGapDays), 30),
 ];
 
 const filters = [

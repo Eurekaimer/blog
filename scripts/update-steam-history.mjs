@@ -1,5 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import {
+	defaultMinSnapshots,
+	defaultRetentionDays,
+	findGaps,
+	pruneHistory,
+	toHistoryEntries,
+} from "../src/utils/steam-history.mjs";
 
 const rootDir = process.cwd();
 const historyPath = path.join(rootDir, "src/data/steam-history.json");
@@ -7,13 +14,8 @@ const siteConfigPath = path.join(rootDir, "src/config/siteConfig.ts");
 const apiBaseUrl = "https://api.steampowered.com/IPlayerService";
 const requestTimeoutMs = 15000;
 const maxAttempts = 3;
-// 动态 GC 的三个参数：
-// - retentionDays 决定保留多久的历史（快照很小，多留一些没有负担）；
-// - minSnapshots 保证「近 30 次」趋势图及其对比窗口始终有数据；
-// - maxSnapshots 作为文件体积的硬上限。
-const retentionDays = Number(process.env.STEAM_HISTORY_RETENTION_DAYS) || 400;
-const minSnapshots = 60;
-const maxSnapshots = 2000;
+const retentionDays =
+	Number(process.env.STEAM_HISTORY_RETENTION_DAYS) || defaultRetentionDays;
 const timeZone = process.env.STEAM_HISTORY_TIMEZONE || "Asia/Shanghai";
 
 function parseEnvValue(value) {
@@ -53,7 +55,9 @@ async function getSteamId() {
 
 	const siteConfig = await readFile(siteConfigPath, "utf8");
 	const steamConfigMatch = siteConfig.match(/steam:\s*{[\s\S]*?}/);
-	const steamIdMatch = steamConfigMatch?.[0].match(/steamId:\s*["']([^"']+)["']/);
+	const steamIdMatch = steamConfigMatch?.[0].match(
+		/steamId:\s*["']([^"']+)["']/,
+	);
 	return steamIdMatch?.[1]?.trim() || "";
 }
 
@@ -64,7 +68,9 @@ function getDateKey(date = new Date()) {
 		month: "2-digit",
 		day: "2-digit",
 	}).formatToParts(date);
-	const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+	const values = Object.fromEntries(
+		parts.map((part) => [part.type, part.value]),
+	);
 	return `${values.year}-${values.month}-${values.day}`;
 }
 
@@ -102,11 +108,11 @@ async function fetchSteamJson(method, params) {
 	return fetchJsonWithRetry(url, method);
 }
 
+// 数据文件是 { 日期: 记录 } 的字典，读出来按日期排序即为时间线。
 async function readHistory() {
 	try {
 		const content = await readFile(historyPath, "utf8");
-		const parsed = JSON.parse(content);
-		return Array.isArray(parsed) ? parsed : [];
+		return toHistoryEntries(JSON.parse(content));
 	} catch (error) {
 		if (error?.code !== "ENOENT") {
 			console.warn("[Steam History] 历史文件读取失败，将重新生成。");
@@ -115,24 +121,27 @@ async function readHistory() {
 	}
 }
 
-async function writeHistory(history) {
-	await writeFile(historyPath, `${JSON.stringify(history, null, 2)}\n`, "utf8");
+// 写回时用日期做 key，保持字典结构，字段顺序即时间顺序。
+async function writeHistory(entries) {
+	const dict = {};
+	for (const entry of entries) dict[entry.date] = entry;
+	await writeFile(historyPath, `${JSON.stringify(dict, null, 2)}\n`, "utf8");
 }
 
-// 动态 GC：按时间窗口裁剪，而不是按固定条数。
-// 采样间隔会随 workflow 频率变化（目前 4 天一次），固定条数在间隔变长时
-// 会把历史裁得过短，在间隔变短时又会留下过多冗余，因此按天数判断，
-// 并用 minSnapshots 兜底，保证趋势图永远够用。
-function pruneHistory(history, now = new Date()) {
-	if (history.length <= minSnapshots) return history;
+// 把采样断档明确暴露到日志里：漏跑不补数据（补出来也不是真实采样），
+// 但趋势图只会用最新的连续段，断档必须能看见。
+function reportGaps(entries) {
+	const gaps = findGaps(entries);
+	if (gaps.length === 0) {
+		console.log("[Steam History] 采样间隔正常，无断档。");
+		return;
+	}
 
-	const cutoffDate = new Date(now.getTime() - retentionDays * 24 * 60 * 60 * 1000);
-	const cutoff = getDateKey(cutoffDate);
-	const recent = history.filter((item) => item.date >= cutoff);
-	const kept =
-		recent.length >= minSnapshots ? recent : history.slice(-minSnapshots);
-
-	return kept.slice(-maxSnapshots);
+	console.warn(
+		`[Steam History] 检测到 ${gaps.length} 处采样断档（定时任务可能漏跑）：${gaps
+			.map((gap) => `${gap.from} -> ${gap.to}（${gap.days} 天）`)
+			.join("、")}`,
+	);
 }
 
 async function main() {
@@ -143,7 +152,9 @@ async function main() {
 	const steamId = await getSteamId();
 
 	if (!steamApiKey || !steamId) {
-		console.warn("[Steam History] 缺少 STEAM_API_KEY 或 Steam ID，跳过快照更新。");
+		console.warn(
+			"[Steam History] 缺少 STEAM_API_KEY 或 Steam ID，跳过快照更新。",
+		);
 		return;
 	}
 
@@ -191,18 +202,23 @@ async function main() {
 			: undefined,
 	};
 
+	// 读到的是按日期排好序的数组；同一天重复运行就覆盖当天的记录。
 	const history = await readHistory();
-	const nextHistory = pruneHistory(
-		[...history.filter((item) => item?.date !== snapshot.date), snapshot]
-			.filter((item) => item?.date && Number.isFinite(item.totalPlayMinutes))
-			.sort((a, b) => a.date.localeCompare(b.date)),
-	);
+	const merged = [
+		...history.filter((entry) => entry.date !== snapshot.date),
+		snapshot,
+	].sort((a, b) => a.date.localeCompare(b.date));
+	const nextHistory = pruneHistory(merged, {
+		retentionDays,
+		minSnapshots: defaultMinSnapshots,
+	});
 
 	await writeHistory(nextHistory);
-	const dropped = history.length + 1 - nextHistory.length;
+	const dropped = merged.length - nextHistory.length;
 	console.log(
-		`[Steam History] 已更新 ${snapshot.date} 快照：${Math.round(totalPlayMinutes / 60)} 小时；保留 ${nextHistory.length} 条${dropped > 0 ? `，GC 回收 ${dropped} 条` : ""}。`,
+		`[Steam History] 已更新 ${snapshot.date} 快照：${Math.round(totalPlayMinutes / 60)} 小时；共 ${nextHistory.length} 条${dropped > 0 ? `，清理 ${dropped} 条` : ""}。`,
 	);
+	reportGaps(nextHistory);
 }
 
 main().catch((error) => {
