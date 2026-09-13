@@ -27,7 +27,7 @@ https://www.eurekaimer.icu/blog
 - 相册页面，用于整理图片记录
 - Steam 统计页，展示游戏库、最近游玩、常玩游戏和游玩时间趋势
 - Steam API key 通过 `.env.local` 和 GitHub Secrets 管理，不写入仓库
-- GitHub Actions 每天自动更新 Steam 历史快照，用于生成 7 天 / 30 天趋势图和小结文案
+- GitHub Actions 每 4 天自动更新 Steam 历史快照，用于生成「近 7 次 / 近 30 次」趋势图和小结文案
 
 ## 本地开发
 
@@ -108,7 +108,7 @@ pnpm steam:history
 项目使用 GitHub Actions 部署到 GitHub Pages：
 
 - `.github/workflows/deploy.yml`：推送到 `master` 后构建并部署
-- `.github/workflows/steam-history.yml`：每天定时更新 Steam 历史快照并提交
+- `.github/workflows/update-snapshots.yml`：每 4 天定时更新 Steam 历史与 Bangumi 订阅快照并提交
 
 部署前需要确认仓库的 Actions Secret 中已经配置 `STEAM_API_KEY`。
 

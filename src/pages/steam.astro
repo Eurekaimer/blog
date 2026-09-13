@@ -79,7 +79,7 @@ type SteamTrendPoint = {
 
 type SteamTrendChart = {
 	range: "week" | "month";
-	days: number;
+	windowSize: number;
 	title: string;
 	totalMinutes: number;
 	averageMinutes: number;
@@ -321,7 +321,6 @@ function getLastPlayedText(timestamp?: number) {
 	});
 }
 
-const dayMs = 24 * 60 * 60 * 1000;
 const chartWidth = 640;
 const chartHeight = 190;
 const chartPadding = {
@@ -348,10 +347,6 @@ function parseDateKey(dateKey: string) {
 	const [year, month, day] = dateKey.split("-").map(Number);
 	if (!year || !month || !day) return Number.NaN;
 	return Date.UTC(year, month - 1, day);
-}
-
-function formatDateKey(timestamp: number) {
-	return new Date(timestamp).toISOString().slice(0, 10);
 }
 
 function formatShortDate(dateKey: string) {
@@ -415,14 +410,14 @@ function getTrendTone(
 }
 
 function buildTrendInsight(chart: {
-	days: number;
+	windowSize: number;
 	totalMinutes: number;
 	previousTotalMinutes: number;
 	percentChange: number | null;
 	snapshotCount: number;
 }) {
-	const currentLabel = chart.days === 7 ? "这周" : "这 30 天";
-	const previousLabel = chart.days === 7 ? "上周" : "前 30 天";
+	const currentLabel = chart.windowSize === 7 ? "最近 7 次" : "最近 30 次";
+	const previousLabel = chart.windowSize === 7 ? "前 7 次" : "前 30 次";
 
 	if (chart.snapshotCount < 2) {
 		return `${currentLabel}的时间轴刚开档，先收集几次构建快照；等记录长起来，就能给你写完整战报啦。`;
@@ -459,33 +454,36 @@ function buildTrendInsight(chart: {
 
 function buildTrendChart(
 	snapshots: SteamHistorySnapshot[],
-	days: number,
+	windowSize: number,
 ): SteamTrendChart {
-	const range = days === 7 ? "week" : "month";
-	const latestDate = snapshots.at(-1)?.date || getDateKeyInTimeZone();
-	const endTime = parseDateKey(latestDate);
-	const startTime = endTime - (days - 1) * dayMs;
-	const previousStartTime = startTime - days * dayMs;
+	const range = windowSize === 7 ? "week" : "month";
 	const plotWidth = chartWidth - chartPadding.left - chartPadding.right;
 	const plotHeight = chartHeight - chartPadding.top - chartPadding.bottom;
+
+	// 按「最近 N 条快照」取窗口，而不是按自然日取窗口：
+	// 采集间隔会随 workflow 频率变化（目前 4 天一次），按日取点会让窗口里大片是空的。
 	const deltas = getSnapshotDeltas(snapshots);
-	const deltaByDate = new Map(
-		deltas.map((delta) => [delta.date, delta.minutes]),
+	const windowDeltas = deltas.slice(-windowSize);
+	const previousDeltas = deltas.slice(
+		Math.max(0, deltas.length - windowSize * 2),
+		Math.max(0, deltas.length - windowSize),
 	);
-	const rawPoints = Array.from({ length: days }, (_, index) => {
-		const date = formatDateKey(startTime + index * dayMs);
-		return {
-			date,
-			label: formatShortDate(date),
-			minutes: deltaByDate.get(date) || 0,
-		};
-	});
+	const rawPoints =
+		windowDeltas.length > 0
+			? windowDeltas.map((delta) => ({
+					date: delta.date,
+					label: delta.date ? formatShortDate(delta.date) : "--",
+					minutes: delta.minutes,
+				}))
+			: [{ date: "", label: "--", minutes: 0 }];
 	const maxMinutes = Math.max(60, ...rawPoints.map((point) => point.minutes));
 	const baseline = chartPadding.top + plotHeight;
 	const points = rawPoints.map((point, index) => {
 		const x =
 			chartPadding.left +
-			(days === 1 ? 0 : (plotWidth * index) / Math.max(1, days - 1));
+			(rawPoints.length === 1
+				? plotWidth / 2
+				: (plotWidth * index) / (rawPoints.length - 1));
 		const y = baseline - (point.minutes / maxMinutes) * plotHeight;
 		return {
 			...point,
@@ -509,31 +507,25 @@ function buildTrendChart(
 		(total, point) => total + point.minutes,
 		0,
 	);
-	const previousTotalMinutes = deltas.reduce((total, delta) => {
-		const time = parseDateKey(delta.date);
-		if (time >= previousStartTime && time < startTime) {
-			return total + delta.minutes;
-		}
-		return total;
-	}, 0);
+	const previousTotalMinutes = previousDeltas.reduce(
+		(total, delta) => total + delta.minutes,
+		0,
+	);
 	const percentChange =
 		previousTotalMinutes > 0
 			? ((totalMinutes - previousTotalMinutes) / previousTotalMinutes) * 100
 			: null;
-	const snapshotCount = snapshots.filter((snapshot) => {
-		const time = parseDateKey(snapshot.date);
-		return time >= previousStartTime && time <= endTime;
-	}).length;
+	const snapshotCount = snapshots.length;
 	const chart = {
 		range,
-		days,
-		title: days === 7 ? "近 7 天" : "近 30 天",
+		windowSize,
+		title: windowSize === 7 ? "近 7 次" : "近 30 次",
 		totalMinutes,
-		averageMinutes: Math.round(totalMinutes / days),
+		averageMinutes: Math.round(totalMinutes / rawPoints.length),
 		previousTotalMinutes,
 		percentChange,
 		percentText: formatTrendPercent(percentChange),
-		compareLabel: days === 7 ? "对比上周" : "对比前 30 天",
+		compareLabel: "对比前一组",
 		tone: getTrendTone(totalMinutes, previousTotalMinutes, percentChange),
 		path,
 		areaPath,
@@ -634,7 +626,7 @@ const filters = [
 									<h2 class="text-lg font-semibold text-neutral-900 dark:text-neutral-100 m-0">游玩时间趋势</h2>
 								</div>
 								<p class="steam-trend-subtitle">
-									按构建快照统计新增游玩时间
+									按构建快照统计新增游玩时间，采样间隔不固定，数据日期会有滞后
 								</p>
 							</div>
 							<div class="steam-trend-tabs">
@@ -697,7 +689,7 @@ const filters = [
 										<strong>{formatHours(chart.totalMinutes)}</strong>
 									</div>
 									<div class="steam-trend-stat">
-										<span>日均</span>
+										<span>每次均</span>
 										<strong>{formatHours(chart.averageMinutes)}</strong>
 									</div>
 									<div class:list={["steam-trend-stat", `tone-${chart.tone}`]}>

@@ -7,7 +7,13 @@ const siteConfigPath = path.join(rootDir, "src/config/siteConfig.ts");
 const apiBaseUrl = "https://api.steampowered.com/IPlayerService";
 const requestTimeoutMs = 15000;
 const maxAttempts = 3;
-const maxSnapshots = 370;
+// 动态 GC 的三个参数：
+// - retentionDays 决定保留多久的历史（快照很小，多留一些没有负担）；
+// - minSnapshots 保证「近 30 次」趋势图及其对比窗口始终有数据；
+// - maxSnapshots 作为文件体积的硬上限。
+const retentionDays = Number(process.env.STEAM_HISTORY_RETENTION_DAYS) || 400;
+const minSnapshots = 60;
+const maxSnapshots = 2000;
 const timeZone = process.env.STEAM_HISTORY_TIMEZONE || "Asia/Shanghai";
 
 function parseEnvValue(value) {
@@ -113,6 +119,22 @@ async function writeHistory(history) {
 	await writeFile(historyPath, `${JSON.stringify(history, null, 2)}\n`, "utf8");
 }
 
+// 动态 GC：按时间窗口裁剪，而不是按固定条数。
+// 采样间隔会随 workflow 频率变化（目前 4 天一次），固定条数在间隔变长时
+// 会把历史裁得过短，在间隔变短时又会留下过多冗余，因此按天数判断，
+// 并用 minSnapshots 兜底，保证趋势图永远够用。
+function pruneHistory(history, now = new Date()) {
+	if (history.length <= minSnapshots) return history;
+
+	const cutoffDate = new Date(now.getTime() - retentionDays * 24 * 60 * 60 * 1000);
+	const cutoff = getDateKey(cutoffDate);
+	const recent = history.filter((item) => item.date >= cutoff);
+	const kept =
+		recent.length >= minSnapshots ? recent : history.slice(-minSnapshots);
+
+	return kept.slice(-maxSnapshots);
+}
+
 async function main() {
 	await loadEnvFile(".env.local");
 	await loadEnvFile(".env");
@@ -170,17 +192,16 @@ async function main() {
 	};
 
 	const history = await readHistory();
-	const nextHistory = [
-		...history.filter((item) => item?.date !== snapshot.date),
-		snapshot,
-	]
-		.filter((item) => item?.date && Number.isFinite(item.totalPlayMinutes))
-		.sort((a, b) => a.date.localeCompare(b.date))
-		.slice(-maxSnapshots);
+	const nextHistory = pruneHistory(
+		[...history.filter((item) => item?.date !== snapshot.date), snapshot]
+			.filter((item) => item?.date && Number.isFinite(item.totalPlayMinutes))
+			.sort((a, b) => a.date.localeCompare(b.date)),
+	);
 
 	await writeHistory(nextHistory);
+	const dropped = history.length + 1 - nextHistory.length;
 	console.log(
-		`[Steam History] 已更新 ${snapshot.date} 快照：${Math.round(totalPlayMinutes / 60)} 小时。`,
+		`[Steam History] 已更新 ${snapshot.date} 快照：${Math.round(totalPlayMinutes / 60)} 小时；保留 ${nextHistory.length} 条${dropped > 0 ? `，GC 回收 ${dropped} 条` : ""}。`,
 	);
 }
 
