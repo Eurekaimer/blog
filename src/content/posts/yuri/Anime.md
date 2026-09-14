@@ -1,6 +1,7 @@
 ---
 title: Anime Rank
 published: 2026-04-19
+updated: 2026-09-14
 pinned: false
 description: Anime Rank
 image: https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/20260419215919456.png
@@ -25,27 +26,27 @@ draft: false
 ## 神作
 
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 超时空辉夜姬：剧情或许有瑕疵，但是作画和特效已经杀穿了，百合番最富裕的一仗
-- [x] 熏香花朵凛然绽放：这个也是看电波吧，我非常喜欢女主(有点像千反田)，实际上镜头给出的隐喻暗示是比较到位的，我很喜欢
+- [x] 熏香花朵凛然绽放：这个也是看电波吧，我非常喜欢女主（有点像千反田），实际上镜头给出的隐喻暗示是比较到位的，我很喜欢
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> Girls Band Cry：近年来少女乐队题材我心中的真正 GOAT，向命运发出呐喊的歌声，真正真实的矛盾的对立冲突，风格正中我的好球区，3D 和作画及其强大
 - [x] 葬送的芙莉莲：在平淡叙事中积累感动的作品，草蛇灰线，伏案千里
 - [x] 紫罗兰永恒花园：入坑作，永远难以忘怀的一部作品，作画极其精良，感情纯粹
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 终将成为你：伟大的百合，伟大的作画，伟大的音乐，伟大的细节，最震惊的硬核百合
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 白箱：切入点与众不同，详细展示了动漫业从业人员的工作和日常，在平淡中有真实的感动，并且还穿插有一些历史叙事，是一部出色的作品
-- [x] 冰菓：个人的性格使然，轻松而又不轻松的校园推理动漫(但是很多人都觉得这个很无聊，那么我觉得可能需要考虑是否能够对得上电波再考虑观看)
+- [x] 冰菓：个人的性格使然，轻松而又不轻松的校园推理动漫（但是很多人都觉得这个很无聊，那么我觉得可能需要考虑是否能够对得上电波再考虑观看）
 - [x] 轻音少女：开创性的作品，打开了萌纪元，我想看第三季(2025.9.14)，我好想看第三季啊！！！！！！！
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 莉兹与青鸟：明暗双线相互成全，音乐和演出双重神话，同为莉兹，互为青鸟，精美清新的童话故事，山田尚子的巅峰之作
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 轻音少女 剧场版：无需多言，KON 伟大，即便是 2011 年的作品依然感觉到诚意满满
 
 ## 佳作
 
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 我们不可能成为恋人！(※似乎可行？)：莫名在 2025 年爆火的百合后宫题材，感觉有点莫名其妙的，原作小说和漫画都是比较出色的，动画基本上维持了一定的作画水平
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 我们不可能成为恋人！（※似乎可行？）：莫名在 2025 年爆火的百合后宫题材，感觉有点莫名其妙的，原作小说和漫画都是比较出色的，动画基本上维持了一定的作画水平
 - [x] 坏女孩：我挺喜欢的，比较轻松日常的喜剧
 - [x] 孤独摇滚：慕名而来，可能没有达到心理的预期，虽然本人也是社恐，但是不太有共鸣，确实是非常不错的作品了
 - [x] 败犬女主太多了：有最喜欢的角色小鞠知花，但是整体题材限制恐怕没有达到神作的潜力
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 樱trick：kiss kiss 的过程
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 樱 trick：kiss kiss 的过程
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> citrus～柑橘味香气～：柑橘味的由来，但是动漫表现可能比不上漫画那么出色
 - [x] BanG Dream! It's MyGO!!!!!：意外的成功吗？开创了少女乐队的一种新视角，个人的话喜欢角色大于喜欢番剧本身了
-- [x] 干物妹！小埋：有喜欢的角色(切绘)，整体节奏感偏轻松，在轻松这一块少有能比肩 K-ON 的
+- [x] 干物妹！小埋：有喜欢的角色（切绘），整体节奏感偏轻松，在轻松这一块少有能比肩 K-ON 的
 - [x] 擅长逃跑的殿下：很喜欢的画风和剧情，算是个人倾向了
 - [x] 玉子市场
 - [x] 间谍过家家 1：比较温馨的作品，优秀的作画，声优，剧情
@@ -65,7 +66,7 @@ draft: false
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 摇曳百合：很经典的作品，基本四人两对，里面有个阴暗系幽灵学姐我相当喜欢
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 摇曳百合♪♪：S2
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 摇曳百合 3☆High!：S3
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 紫罗兰永恒花园 外传 - 永远与自动手记人偶：有点想要搞事情的演出，很多地方单看感觉表现得像姬片，但是后续 emm，建议把全部内容看完(我不剧透)
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 紫罗兰永恒花园 外传 - 永远与自动手记人偶：有点想要搞事情的演出，很多地方单看感觉表现得像姬片，但是后续 emm，建议把全部内容看完（我不剧透）
 
 ## 良作
 
@@ -75,18 +76,18 @@ draft: false
 - [x] 品酒要在成为夫妻后：经典泡面番，就那样吧
 - [x] 刺客伍六七
 - [x] 式守同学不只可爱而已
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 安达与岛村：百合界最长的河，入间人间最优秀的纯爱百合小说改编，但是动漫展现力还是相对较差(中庸级别)
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 安达与岛村：百合界最长的河，入间人间最优秀的纯爱百合小说改编，但是动漫展现力还是相对较差（中庸级别）
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 玉响～毕业写真～：4 集，其实感觉到是比较好的作品，但是讨论度很低
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 玉响～more aggressive～：是比较好的作品，但是讨论度很低
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 街角魔族：还算比较有趣的沙雕搞笑日常百合番剧
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 对我垂涎欲滴的非人少女：还可以只能说，但是依旧百合番不如原作定律
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 街角魔族 2丁目：有一些比较不错的改变，虽然我不觉得这个作画和剧情有什么进步，过度的章节
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 这里是充满笑容的职场：一部讲述漫画家工作日常的轻百番(讲谈社善日常，芳文社善卖萌)，很多地方是很治愈的，算是我比较偏爱的作品
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 街角魔族 2 丁目：有一些比较不错的改变，虽然我不觉得这个作画和剧情有什么进步，过度的章节
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 这里是充满笑容的职场：一部讲述漫画家工作日常的轻百番（讲谈社善日常，芳文社善卖萌），很多地方是很治愈的，算是我比较偏爱的作品
 
 ## 凡作
 
 - [x] 天才王子的赤字国家振兴术
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 恋语轻唱：我说不好，我不好说，看原作吧，谢谢(读到这里请为竹岛老师哀悼三分钟)
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 恋语轻唱：我说不好，我不好说，看原作吧，谢谢（读到这里请为竹岛老师哀悼三分钟）
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 亲吻那片花瓣「恋人的羁绊」：OVA，我宣布这就是簧片啊
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 和机器人啪啪啪能算在经验次数里吗？？：那不就是玩机器吗(bushi)，标题取胜
 
@@ -102,4 +103,4 @@ draft: false
 ## 百合小说
 
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 关于佐伯沙弥香：入间人间执笔的终将外传，补完了沙弥香的过去与未来，文笔极佳
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 女性向游戏女主角...：转生恶役流的经典之作，虽然是轻小说但是百合度很高
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 女性向游戏女主角。..：转生恶役流的经典之作，虽然是轻小说但是百合度很高
