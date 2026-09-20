@@ -1,18 +1,18 @@
 ---
-title: 工作流v5.2
+title: 工作流 v5.2
 published: 2025-03-04
 updated: 2026-09-13
 pinned: false
-description: 工作流v5.2
+description: 工作流 v5.2
 image: https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/%E6%A8%B1trick.png
 tags: [workflow]
 category: 工作流
 draft: false
 ---
 
-# 工作流v5.2(last updated 2026-09-13)
+# 工作流 v5.2(last updated 2026-09-13)
 
-# 工作流v5.2
+# 工作流 v5.2
 
 ## 理论
 

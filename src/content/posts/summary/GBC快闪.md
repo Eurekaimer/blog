@@ -1,16 +1,16 @@
 ---
-title: GBC快闪
+title: GBC 快闪
 published: 2025-05-19
 updated: 2026-09-14
 pinned: false
-description: GBC快闪
+description: GBC 快闪
 image: https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/nina-gbc.jpg
 tags: [旅行, 纪念, GBC]
 category: 旅行
 draft: false
 ---
 
-# GBC快闪
+# GBC 快闪
 
 nina 镇楼
 
@@ -33,7 +33,7 @@ nina 镇楼
   我想我永远不会忘记 GBC 了
 </div>
 
-## 纪念Peter Lax
+## 纪念 Peter Lax
 
 > [!tip] 悼念
 > 于此纪念一位伟大的应用数学家，我曾受益于您的教材，并且在后续的泛函分析课程中也将阅读您的著作。
