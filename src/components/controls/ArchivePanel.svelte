@@ -3,6 +3,7 @@ import { onMount } from "svelte";
 
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
+import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { getPostUrlBySlug } from "@/utils/url-utils";
 
 export let tags: string[] = [];
@@ -21,6 +22,7 @@ interface Post {
 		tags: string[];
 		category?: string | null;
 		published: Date;
+		updated?: Date;
 	};
 }
 
@@ -181,19 +183,22 @@ onMount(async () => {
 			</div>
 
 			{#each group.posts as post}
+				{@const updated = post.data.updated && post.data.updated.getTime() > post.data.published.getTime() ? post.data.updated : undefined}
+				{@const updatedId = `archive-updated-${encodeURIComponent(post.id)}`}
 				<a
 						href={getPostUrlBySlug(post.id)}
 						aria-label={post.data.title}
-						class="group btn-plain block! h-10 w-full rounded-lg hover:text-[initial]"
+						aria-describedby={updated ? updatedId : undefined}
+						class="group btn-plain block! min-h-14 w-full rounded-lg hover:text-[initial]"
 				>
-					<div class="flex flex-row justify-start items-center h-full">
+					<div class="flex flex-row justify-start items-stretch min-h-14">
 						<!-- date -->
-						<div class="w-[15%] md:w-[10%] transition text-sm text-right text-50">
-							{formatDate(post.data.published)}
+						<div class="w-[15%] md:w-[10%] self-center transition text-sm text-right text-50">
+							<time datetime={post.data.published.toISOString()}>{formatDate(post.data.published)}</time>
 						</div>
 
 						<!-- dot and line -->
-						<div class="w-[15%] md:w-[10%] relative dash-line h-full flex items-center">
+						<div class="w-[15%] md:w-[10%] relative dash-line flex items-center">
 							<div
 									class="transition-all mx-auto w-1 h-1 rounded group-hover:h-5
                        bg-[oklch(0.5_0.05_var(--hue))] group-hover:bg-(--primary)
@@ -206,16 +211,21 @@ onMount(async () => {
 
 						<!-- post title -->
 						<div
-								class="w-[70%] md:max-w-[65%] md:w-[65%] text-left font-bold
+								class="w-[70%] md:max-w-[65%] md:w-[65%] min-w-0 py-2 text-left font-bold
                      group-hover:translate-x-1 transition-all group-hover:text-(--primary)
-                     text-75 pr-8 whitespace-nowrap text-ellipsis overflow-hidden"
+                     text-75 pr-8"
 						>
-							{post.data.title}
+							<div class="whitespace-nowrap text-ellipsis overflow-hidden">{post.data.title}</div>
+							{#if updated}
+								<div id={updatedId} class="text-xs font-normal text-50">
+									{i18n(I18nKey.updatedAt)} <time datetime={updated.toISOString()}>{formatDateToYYYYMMDD(updated)}</time>
+								</div>
+							{/if}
 						</div>
 
 						<!-- tag list -->
 						<div
-								class="hidden md:block md:w-[15%] text-left text-sm transition
+								class="hidden md:block md:w-[15%] self-center text-left text-sm transition
                      whitespace-nowrap text-ellipsis overflow-hidden text-30"
 						>
 							{formatTag(post.data.tags)}
