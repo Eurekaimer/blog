@@ -1,6 +1,6 @@
 import type { FriendLink, FriendsPageConfig } from "../types/config";
 
-// 可以在src/content/spec/friends.md中编写友链页面下方的自定义内容
+// 可以在 content/spec/friends.md 中编写友链页面下方的自定义内容
 
 // 友链页面配置
 export const friendsPageConfig: FriendsPageConfig = {

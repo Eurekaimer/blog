@@ -18,6 +18,7 @@
 		"steam:history": "node scripts/update-steam-history.mjs",
 		"test:data": "node scripts/test-steam-history.mjs",
 		"test:content": "node scripts/test-post-content.mjs",
+		"test:authoring": "node --test scripts/test-new-post.mjs",
 		"manga:sync": "node scripts/sync-koma-bell-progress.mjs"
 	},
 	"dependencies": {

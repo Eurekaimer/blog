@@ -1,121 +1,82 @@
-# 知花咏歌
+# Eurekaimer Blog
 
-> 我的个人博客，基于 [Firefly](https://github.com/CuteLeaf/Firefly) 模板继续延伸。
+An [Astro](https://astro.build/) static site based on [Firefly](https://github.com/CuteLeaf/Firefly), which derives from [fuwari](https://github.com/saicaca/fuwari).
 
-![Node.js >= 22](https://img.shields.io/badge/node.js-%3E%3D22-brightgreen)
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
-![Astro](https://img.shields.io/badge/Astro-6.0.8-orange)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
+The site is configured at <https://www.eurekaimer.icu/blog/> with the `/blog` base path and trailing slashes.
 
-**README**: [简体中文](README.md) | [English](README.en.md)
+## Features
 
-## 简介
+- Posts, publication-based archives, categories, tags, RSS, and Pagefind search.
+- Optional archive modification dates, displayed without changing publication chronology.
+- Short-form posts, Bangumi collections, and photo galleries.
+- Steam library and playtime statistics with historical snapshots.
+- Bangumi manga-progress synchronization, including local koma-bell state.
 
-这是一个用来记录日常、总结、ACGN 内容和折腾笔记的静态博客。项目沿用了 Firefly 的 Astro 架构、布局系统和视觉基础，并在此之上调整为更适合我自己的站点：文章、番组、相册，以及一个用于展示游戏库和游玩时间的 Steam 统计页。
+Steam trend windows use recent snapshots, not necessarily 7 or 30 calendar days.
 
-当前站点地址：
+## Requirements and setup
 
-```text
-https://www.eurekaimer.icu/blog
-```
+Use Node.js **22.12.0 or later** and **pnpm 9.14.4**. Astro is pinned to 6.0.8; retain the existing lockfile.
 
-## 功能
-
-- Astro 静态站点，GitHub Pages 自动部署
-- 文章归档、分类、标签、RSS 和 Pagefind 搜索
-- Bangumi 收藏页，用于展示动画、书籍、游戏等条目
-- 相册页面，用于整理图片记录
-- Steam 统计页，展示游戏库、最近游玩、常玩游戏和游玩时间趋势
-- Steam API key 通过 `.env.local` 和 GitHub Secrets 管理，不写入仓库
-- GitHub Actions 每 4 天自动更新 Steam 历史快照，用于生成「近 7 次 / 近 30 次」趋势图和小结文案
-
-## 本地开发
-
-环境要求：
-
-- Node.js >= 22
-- pnpm >= 9
-
-安装依赖：
-
-```bash
-pnpm install
-```
-
-本地开发：
-
-```bash
+```sh
+pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-构建与预览：
+Open the development server at `/blog/`.
 
-```bash
+```sh
 pnpm build
 pnpm preview
 ```
 
-如果本地访问 Steam API 需要代理，可以在构建时让 Node 读取环境代理：
+`pnpm build` generates icons, synchronizes local koma-bell manga progress, refreshes Steam history, builds Astro, and indexes the output with Pagefind. It can rewrite tracked icon/data files and access sibling project state or network services. Review generated changes before committing.
 
-```bash
-NODE_USE_ENV_PROXY=1 pnpm build
+For a production build without those preprocessing steps:
+
+```sh
+pnpm astro build
+pnpm exec pagefind --site dist
+pnpm preview --host 127.0.0.1 --port 4321
 ```
 
-## Steam 配置
+Astro may still fetch external integrations. This is not an offline build.
 
-Steam 页需要两个配置：
+## Content and configuration
 
-- `src/config/siteConfig.ts` 中的 `steam.steamId`
-- 环境变量 `STEAM_API_KEY`
+- Create an article with `pnpm new-post <filename>`; nested names are supported. Articles currently live in `src/content/posts/`.
+- Short-form posts live in `src/content/moments/`.
+- Gallery metadata is configured in `src/config/galleryConfig.ts`; images live in `public/gallery/<album-id>/`.
+- Site settings and integration identifiers live in `src/config/siteConfig.ts`.
 
-本地开发时，在 `.env.local` 中填写：
+Use [`.env.example`](.env.example) as the template for an ignored `.env.local`. Never commit credentials.
 
-```env
-STEAM_API_KEY=""
+Steam requires `STEAM_API_KEY` and `siteConfig.steam.steamId`. Configure the matching `STEAM_API_KEY` repository secret for GitHub Actions. `pnpm steam:history` refreshes `src/data/steam-history.json`.
+
+Configure `siteConfig.bangumi.userId` for Bangumi collections. The snapshot workflow accepts `BANGUMI_USER_ID` as an Actions secret or variable, with the site configuration as its fallback. `pnpm manga:sync` reads local koma-bell subscriptions/state; its default project directory is the sibling `../koma-bell`, configurable through `KOMA_BELL_DIR`.
+
+## Verification
+
+```sh
+pnpm check
+pnpm test:data
+# Start the development server or production preview before this command:
+pnpm test:content
 ```
 
-`.env.local` 已被 `.gitignore` 忽略。仓库中只保留 `.env.example` 作为示例。
+`test:data` checks Steam-history behavior. `test:content` fetches rendered article pages and checks the selected collapsed comment and directly readable articles. Its default base URL is `http://127.0.0.1:4321/blog/`; override it with `pnpm test:content <base-url>`. Unreachable pages and non-200 responses fail the check.
 
-GitHub Actions 中需要配置同名 Secret：
+Archive layout and navigation changes also require real-browser verification at desktop and mobile widths in light and dark modes. `pnpm lint` and `pnpm format` **write files**; they are not read-only verification commands.
 
-```text
-Settings -> Secrets and variables -> Actions -> New repository secret
-Name: STEAM_API_KEY
-```
+## Automation
 
-相关命令：
+- [Deploy workflow](.github/workflows/deploy.yml): builds and deploys to GitHub Pages on `master` pushes, scheduled runs, or manual dispatch.
+- [Build workflow](.github/workflows/build.yml): builds Astro for `master` pushes and pull requests.
+- [Snapshot workflow](.github/workflows/update-snapshots.yml): updates Steam history and Bangumi manga snapshots. Its schedule, `10 16 */4 * *`, runs every fourth day-of-month at 16:10 UTC (days 1, 5, 9, and so on), not daily or at a guaranteed 96-hour interval.
+- [Quality workflow](.github/workflows/biome.yml): currently reports that checks are disabled; it does not run quality checks.
 
-```bash
-pnpm steam:history
-```
+## Contribution and license
 
-这个命令会更新 `src/data/steam-history.json`，文件只保存统计数字，不保存 API key。
+See [AGENTS.md](AGENTS.md) for contribution rules and [project memory](.agents/memory.md) for established requirements and deferred work.
 
-## 常用命令
-
-| 命令 | 说明 |
-| --- | --- |
-| `pnpm dev` | 启动开发服务器 |
-| `pnpm build` | 更新图标、更新 Steam 历史并构建站点 |
-| `pnpm preview` | 预览 `dist` 构建结果 |
-| `pnpm check` | 运行 Astro 检查 |
-| `pnpm format` | 格式化 `src` 目录 |
-| `pnpm new-post <filename>` | 创建新文章 |
-| `pnpm steam:history` | 手动更新 Steam 历史快照 |
-
-## 部署
-
-项目使用 GitHub Actions 部署到 GitHub Pages：
-
-- `.github/workflows/deploy.yml`：推送到 `master` 后构建并部署
-- `.github/workflows/update-snapshots.yml`：每 4 天定时更新 Steam 历史与 Bangumi 订阅快照并提交
-
-部署前需要确认仓库的 Actions Secret 中已经配置 `STEAM_API_KEY`。
-
-## 致谢
-
-本项目基于 [Firefly](https://github.com/CuteLeaf/Firefly) 继续定制，Firefly 基于 [fuwari](https://github.com/saicaca/fuwari) 二次开发。感谢原作者提供的主题基础、布局设计和组件思路。
-
-## 许可
-
-本项目遵循 [MIT License](./LICENSE)。
+The project uses the [MIT License](LICENSE). Retain the license and upstream copyright notices when redistributing it.
