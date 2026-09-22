@@ -44,10 +44,13 @@ Astro may still fetch external integrations. This is not an offline build.
 
 ## Content and configuration
 
-- Create an article with `pnpm new-post <filename>`; nested names are supported. Articles currently live in `src/content/posts/`.
-- Short-form posts live in `src/content/moments/`.
+- Create an article with `pnpm new-post <filename>`; nested names are supported. Articles live in `content/posts/`.
+- Short-form posts live in `content/moments/`.
+- Standalone content, including the About page, lives in `content/spec/`.
 - Gallery metadata is configured in `src/config/galleryConfig.ts`; images live in `public/gallery/<album-id>/`.
 - Site settings and integration identifiers live in `src/config/siteConfig.ts`.
+
+The root `content/` directory is the authoring entry point. Rendering code, components, and collection schemas remain in `src/`; gallery storage is unchanged. Moving an article between these authoring roots is not a URL-management mechanism: preserve its collection-relative path to preserve its public URL.
 
 Use [`.env.example`](.env.example) as the template for an ignored `.env.local`. Never commit credentials.
 
@@ -60,11 +63,14 @@ Configure `siteConfig.bangumi.userId` for Bangumi collections. The snapshot work
 ```sh
 pnpm check
 pnpm test:data
+pnpm test:authoring
 # Start the development server or production preview before this command:
 pnpm test:content
 ```
 
 `test:data` checks Steam-history behavior. `test:content` fetches rendered article pages and checks the selected collapsed comment and directly readable articles. Its default base URL is `http://127.0.0.1:4321/blog/`; override it with `pnpm test:content <base-url>`. Unreachable pages and non-200 responses fail the check.
+
+`test:authoring` runs isolated Node tests for nested article creation in `content/posts/` and protection against overwriting existing articles.
 
 Archive layout and navigation changes also require real-browser verification at desktop and mobile widths in light and dark modes. `pnpm lint` and `pnpm format` **write files**; they are not read-only verification commands.
 
@@ -77,6 +83,6 @@ Archive layout and navigation changes also require real-browser verification at 
 
 ## Contribution and license
 
-See [AGENTS.md](AGENTS.md) for contribution rules and [project memory](.agents/memory.md) for established requirements and deferred work.
+See [AGENTS.md](AGENTS.md) for contribution rules and [project memory](agents/memory.md) for established requirements and deferred work.
 
 The project uses the [MIT License](LICENSE). Retain the license and upstream copyright notices when redistributing it.
