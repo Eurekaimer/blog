@@ -25,7 +25,10 @@ test("creates a nested MDX article in the root content directory", (t) => {
 	const root = workspace(t);
 	const result = create(root, "notes/写作.mdx");
 	assert.equal(result.status, 0, result.stderr);
-	const article = readFileSync(path.join(root, "content/posts/notes/写作.mdx"), "utf8");
+	const article = readFileSync(
+		path.join(root, "content/posts/notes/写作.mdx"),
+		"utf8",
+	);
 	assert.match(article, /^---\r?\n[\s\S]*\r?\n---\r?\n/);
 });
 
@@ -33,7 +36,8 @@ test("refuses to overwrite an existing Markdown article", (t) => {
 	const root = workspace(t);
 	assert.equal(create(root, "notes/existing").status, 0);
 	const destination = path.join(root, "content/posts/notes/existing.md");
-	const original = "---\ntitle: Existing article\n---\nAuthor changes must survive.\n";
+	const original =
+		"---\ntitle: Existing article\n---\nAuthor changes must survive.\n";
 	writeFileSync(destination, original);
 	const result = create(root, "notes/existing");
 	assert.notEqual(result.status, 0);
