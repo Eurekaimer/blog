@@ -52,7 +52,13 @@ export function getDir(path: string): string {
 }
 
 export function getFileDirFromPath(filePath: string): string {
-	return filePath.replace(/^src\//, "").replace(/\/[^/]+$/, "");
+	const directory = filePath.replace(/\/[^/]+$/, "");
+	// Image imports resolve from src; authored content lives at the project root.
+	return directory.startsWith("src/")
+		? directory.slice(4)
+		: directory
+			? `../${directory}`
+			: "";
 }
 
 export function getSearchUrl(query: string): string {

@@ -70,7 +70,7 @@ if (processedImage) {
 	);
 	if (isLocal) {
 		const basePath = getFileDirFromPath(entry.filePath || "");
-		const files = import.meta.glob<ImageMetadata>("../../**", {
+		const files = import.meta.glob<ImageMetadata>(["../../**", "../../../content/**/*.{png,jpg,jpeg,webp,avif}"], {
 			import: "default",
 		});
 		let normalizedPath = path
