@@ -1,8 +1,36 @@
 {
   "userId": "1191748",
-  "updatedAt": "2026-09-25T20:00:01.195Z",
-  "total": 4,
+  "updatedAt": "2026-09-29T20:43:37.461Z",
+  "total": 8,
   "items": [
+    {
+      "subjectId": 380821,
+      "name": "相反的你和我",
+      "url": "https://bgm.tv/subject/380821",
+      "progressVol": 0,
+      "totalVol": 8
+    },
+    {
+      "subjectId": 355555,
+      "name": "薰香花朵凛然绽放",
+      "url": "https://bgm.tv/subject/355555",
+      "progressVol": 0,
+      "totalVol": 0
+    },
+    {
+      "subjectId": 193081,
+      "name": "明日同学的水手服",
+      "url": "https://bgm.tv/subject/193081",
+      "progressVol": 0,
+      "totalVol": 0
+    },
+    {
+      "subjectId": 524175,
+      "name": "致彼时繁花",
+      "url": "https://bgm.tv/subject/524175",
+      "progressVol": 0,
+      "totalVol": 0
+    },
     {
       "subjectId": 599997,
       "name": "二人巴士",
