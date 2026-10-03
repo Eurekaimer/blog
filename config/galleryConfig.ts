@@ -14,6 +14,38 @@ export const galleryConfig: GalleryConfig = {
 		// tags: 相册标签，用于分类和过滤
 		// 每添加一个数组项就相当于添加了一个相册，记得在 public/gallery/ 目录下创建对应的子目录并放入图片
 		{
+			id: "math-news",
+			name: "数学摘录",
+			description: "关于数学研究、理解与 AI 协作的文字摘录。",
+			date: "2026-10-03",
+			tags: ["数学", "人工智能", "摘录"],
+			cover: "/gallery/math-news/math-news-02.png",
+		},
+		{
+			id: "love-or-game-over",
+			name: "不恋爱就完蛋了",
+			description: "《不恋爱就完蛋了》的游戏画面。",
+			date: "2026-10-03",
+			tags: ["不恋爱就完蛋了", "游戏", "百合"],
+			cover: "/gallery/love-or-game-over/love-or-game-over-02.webp",
+		},
+		{
+			id: "koi-yori-aoku",
+			name: "恋より青く",
+			description: "《恋より青く》漫画中的画面与对白摘录。",
+			date: "2026-10-03",
+			tags: ["恋より青く", "漫画", "百合"],
+			cover: "/gallery/koi-yori-aoku/koi-yori-aoku-01.png",
+		},
+		{
+			id: "amayo-no-tsuki",
+			name: "雨夜明月",
+			description: "《雨夜明月》漫画中的画面与对白摘录。",
+			date: "2026-10-03",
+			tags: ["雨夜明月", "漫画", "百合"],
+			cover: "/gallery/amayo-no-tsuki/amayo-no-tsuki-04.png",
+		},
+		{
 			id: "liz-and-blue-bird",
 			name: "莉兹与青鸟",
 			description:
