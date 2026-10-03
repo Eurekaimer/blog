@@ -10,7 +10,7 @@ import {
 
 const rootDir = process.cwd();
 const historyPath = path.join(rootDir, "src/data/steam-history.json");
-const siteConfigPath = path.join(rootDir, "src/config/siteConfig.ts");
+const siteConfigPath = path.join(rootDir, "config/siteConfig.ts");
 const apiBaseUrl = "https://api.steampowered.com/IPlayerService";
 const requestTimeoutMs = 15000;
 const maxAttempts = 3;

@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import BangumiSection from "@/components/pages/bangumi/BangumiSection.astro";
 import TabNav from "@/components/pages/bangumi/TabNav.astro";
-import { siteConfig } from "@/config";
+import { siteConfig } from "@config";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
@@ -380,7 +380,7 @@ const mangaSnapshotUpdatedAt = mangaProgressSnapshot.updatedAt || "";
             {isUserIdConfigured ? i18n(I18nKey.bangumiEmpty) : "未配置 Bangumi 用户ID"}
           </h2>
           <p class="text-black/60 dark:text-white/60 mb-4 max-w-md mx-auto">
-            {isUserIdConfigured ? i18n(I18nKey.bangumiEmptyReason) : "请在 src/config/siteConfig.ts 中配置你的 Bangumi 用户ID"}
+            {isUserIdConfigured ? i18n(I18nKey.bangumiEmptyReason) : "请在 config/siteConfig.ts 中配置你的 Bangumi 用户ID"}
           </p>
         </div>
       )}

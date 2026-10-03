@@ -11,7 +11,7 @@ import { onMount } from "svelte";
 import DropdownItem from "@/components/common/DropdownItem.svelte";
 import DropdownPanel from "@/components/common/DropdownPanel.svelte";
 import Icon from "@/components/common/Icon.svelte";
-import { backgroundWallpaper } from "@/config";
+import { backgroundWallpaper } from "@config";
 import type { WALLPAPER_MODE } from "@/types/config";
 
 /**

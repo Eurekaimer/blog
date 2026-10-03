@@ -1,4 +1,4 @@
-import { sidebarLayoutConfig } from "@/config";
+import { sidebarLayoutConfig } from "../../config";
 
 export interface ResponsiveSidebarConfig {
 	isBothSidebars: boolean;

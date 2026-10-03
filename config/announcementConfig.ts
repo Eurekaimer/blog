@@ -1,4 +1,4 @@
-import type { AnnouncementConfig } from "../types/config";
+import type { AnnouncementConfig } from "@/types/config";
 
 export const announcementConfig: AnnouncementConfig = {
 	// 公告标题

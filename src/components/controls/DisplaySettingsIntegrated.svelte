@@ -33,7 +33,7 @@ import {
 } from "@utils/setting-utils";
 import { onMount } from "svelte";
 import Icon from "@/components/common/Icon.svelte";
-import { backgroundWallpaper, siteConfig } from "@/config";
+import { backgroundWallpaper, siteConfig } from "@config";
 import type { WALLPAPER_MODE } from "@/types/config";
 
 let hue = $state(getHue());

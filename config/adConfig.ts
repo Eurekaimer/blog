@@ -1,4 +1,4 @@
-import type { AdConfig } from "../types/config";
+import type { AdConfig } from "@/types/config";
 
 // 这里只是配置广告内容，如果要开关请在sidebarConfig.ts中控制侧边栏组件的的启用组件即可
 

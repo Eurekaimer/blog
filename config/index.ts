@@ -23,7 +23,7 @@ export type {
 	SponsorMethod,
 	WidgetComponentConfig,
 	WidgetComponentType,
-} from "../types/config";
+} from "@/types/config";
 export { announcementConfig } from "./announcementConfig"; // 公告配置
 // 样式配置
 export { backgroundWallpaper } from "./backgroundWallpaper"; // 背景壁纸配置

@@ -6,8 +6,8 @@ import satori from "satori";
 import sharp from "sharp";
 import { removeFileExtension } from "@/utils/url-utils";
 
-import { profileConfig } from "../../config/profileConfig";
-import { siteConfig } from "../../config/siteConfig";
+import { profileConfig } from "@config/profileConfig";
+import { siteConfig } from "@config/siteConfig";
 
 type Weight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 

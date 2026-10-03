@@ -4,7 +4,7 @@ import {
 	type NavBarLink,
 	type NavBarSearchConfig,
 	NavBarSearchMethod,
-} from "../types/config";
+} from "../src/types/config";
 import { siteConfig } from "./siteConfig";
 
 // 根据页面开关动态生成导航栏配置

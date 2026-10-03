@@ -16,6 +16,12 @@
       }
     ],
     "paths": {
+      "@config": [
+        "config/index.ts"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
       "@components/*": [
         "src/components/*"
       ],
@@ -41,7 +47,8 @@
   },
   "include": [
     ".astro/types.d.ts",
-    "src/**/*"
+    "src/**/*",
+    "config/**/*"
   ],
   "exclude": [
     "dist"

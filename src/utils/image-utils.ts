@@ -1,5 +1,5 @@
-import { coverImageConfig } from "../config/coverImageConfig";
-import { siteConfig } from "../config/siteConfig";
+import { coverImageConfig } from "../../config/coverImageConfig";
+import { siteConfig } from "../../config/siteConfig";
 import type { ImageFormat } from "../types/config";
 
 const { randomCoverImage } = coverImageConfig;

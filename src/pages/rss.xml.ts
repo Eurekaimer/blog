@@ -10,7 +10,7 @@ import { url } from "@utils/url-utils";
 import type { APIContext } from "astro";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import sanitizeHtml from "sanitize-html";
-import { siteConfig } from "@/config";
+import { siteConfig } from "@config";
 import pkg from "../../package.json";
 
 function stripInvalidXmlChars(str: string): string {

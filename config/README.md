@@ -5,7 +5,7 @@
 ## 📁 配置文件结构
 
 ```
-src/config/
+config/
 ├── index.ts              # 配置索引文件 - 统一导出
 ├── siteConfig.ts         # 站点基础配置
 ├── backgroundWallpaper.ts # 背景壁纸配置
@@ -33,13 +33,13 @@ src/config/
 
 ### 推荐：使用配置索引（统一导入）
 ```typescript
-import { siteConfig, profileConfig } from '../config';
+import { siteConfig, profileConfig } from '@config';
 ```
 
 ### 直接导入单个配置
 ```typescript
-import { siteConfig } from '../config/siteConfig';
-import { profileConfig } from '../config/profileConfig';
+import { siteConfig } from '@config/siteConfig';
+import { profileConfig } from '@config/profileConfig';
 ```
 
 ## 📋 配置文件列表

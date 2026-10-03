@@ -7,7 +7,7 @@ async function resolveUserId() {
 		return envUserId;
 	}
 
-	const configPath = path.join(process.cwd(), "src/config/siteConfig.ts");
+	const configPath = path.join(process.cwd(), "config/siteConfig.ts");
 	const configSource = await fs.readFile(configPath, "utf8");
 	const bangumiConfig = configSource.match(
 		/bangumi\s*:\s*\{(?<body>[\s\S]*?)\n\s*\}/,

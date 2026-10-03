@@ -1,4 +1,4 @@
-import type { SidebarLayoutConfig } from "../types/config";
+import type { SidebarLayoutConfig } from "@/types/config";
 
 /**
  * 侧边栏布局配置

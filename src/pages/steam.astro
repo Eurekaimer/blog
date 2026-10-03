@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { siteConfig } from "@/config";
+import { siteConfig } from "@config";
 import steamHistory from "@/data/steam-history.json";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
@@ -803,7 +803,7 @@ const filters = [
 						{fetchStatus === "missing_key"
 							? "请在部署环境中添加 STEAM_API_KEY。密钥只会在构建时用于服务端请求，不会输出到前端。"
 							: fetchStatus === "missing_config"
-								? "请在 src/config/siteConfig.ts 中配置 steam.steamId。"
+								? "请在 config/siteConfig.ts 中配置 steam.steamId。"
 								: fetchStatus === "empty"
 									? "可能是 Steam 个人资料或游戏库隐私设置限制了 API 读取。"
 									: "可能是网络、Steam API 限制或隐私设置导致。页面会在下次构建时重新尝试。"}
