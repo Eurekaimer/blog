@@ -5,7 +5,7 @@ updated: 2026-09-14
 pinned: false
 description: GBC 快闪
 image: https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/nina-gbc.jpg
-tags: [旅行, 纪念, GBC]
+tags: [旅行, GBC, 明日方舟]
 category: 旅行
 draft: false
 ---
@@ -16,7 +16,7 @@ nina 镇楼
 
 ![nina](https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/nina-gbc.jpg)
 
-上周定了前往北京的车票后，一整周都是一个非常兴奋且压抑的状态，在出发前的前一晚兴奋到了两点才睡，不过到了现场之后感受了美好的氛围后感到非常的值得，直到现在写这篇文章时我仍然在回味这次 GBC 快闪。
+上周订了前往北京的车票后，一整周都是一个非常兴奋且压抑的状态，在出发前的一晚兴奋到了两点才睡，不过到了现场之后感受了美好的氛围后感到非常的值得，直到现在写这篇文章时我仍然在回味这次 GBC 快闪。
 
 <div style="
   width: 100%;
@@ -60,7 +60,7 @@ PS：轻小说也有很多，如果有感兴趣的以后也可以在那里购买
 
 ![打卡](https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/gbc-daka.jpg)
 
-合影（感谢摄影师@pr 了，虽然他应该看不到）：
+合影（感谢摄影师 @pr 了，虽然他应该看不到）：
 
 ![合影](https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/%E5%90%88%E5%BD%B1mmk.jpg)
 

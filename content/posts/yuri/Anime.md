@@ -4,8 +4,8 @@ published: 2026-04-19
 updated: 2026-09-14
 pinned: false
 description: Anime Rank
-image: https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/20260419215919456.png
-tags: [ACGN, Anime, 百合]
+image: /assets/images/covers/schoolgirl-in-the-wind.webp
+tags: [动画, 百合, 作品推荐]
 category: ACG
 draft: false
 ---
@@ -26,9 +26,9 @@ draft: false
 ## 神作
 
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 超时空辉夜姬：剧情或许有瑕疵，但是作画和特效已经杀穿了，百合番最富裕的一仗
-- [x] 熏香花朵凛然绽放：这个也是看电波吧，我非常喜欢女主（有点像千反田），实际上镜头给出的隐喻暗示是比较到位的，我很喜欢
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> Girls Band Cry：近年来少女乐队题材我心中的真正 GOAT，向命运发出呐喊的歌声，真正真实的矛盾的对立冲突，风格正中我的好球区，3D 和作画及其强大
-- [x] 葬送的芙莉莲：在平淡叙事中积累感动的作品，草蛇灰线，伏案千里
+- [x] 薰香花朵凛然绽放：这个也是看电波吧，我非常喜欢女主（有点像千反田），实际上镜头给出的隐喻暗示是比较到位的，我很喜欢
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> Girls Band Cry：近年来少女乐队题材我心中的真正 GOAT，向命运发出呐喊的歌声，真正真实的矛盾的对立冲突，风格正中我的好球区，3D 和作画极其强大
+- [x] 葬送的芙莉莲：在平淡叙事中积累感动的作品，草蛇灰线，伏脉千里
 - [x] 紫罗兰永恒花园：入坑作，永远难以忘怀的一部作品，作画极其精良，感情纯粹
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 终将成为你：伟大的百合，伟大的作画，伟大的音乐，伟大的细节，最震惊的硬核百合
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 白箱：切入点与众不同，详细展示了动漫业从业人员的工作和日常，在平淡中有真实的感动，并且还穿插有一些历史叙事，是一部出色的作品
@@ -81,7 +81,7 @@ draft: false
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 玉响～more aggressive～：是比较好的作品，但是讨论度很低
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 街角魔族：还算比较有趣的沙雕搞笑日常百合番剧
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 对我垂涎欲滴的非人少女：还可以只能说，但是依旧百合番不如原作定律
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 街角魔族 2 丁目：有一些比较不错的改变，虽然我不觉得这个作画和剧情有什么进步，过度的章节
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 街角魔族 2 丁目：有一些比较不错的改变，虽然我不觉得这个作画和剧情有什么进步，过渡的章节
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 这里是充满笑容的职场：一部讲述漫画家工作日常的轻百番（讲谈社善日常，芳文社善卖萌），很多地方是很治愈的，算是我比较偏爱的作品
 
 ## 凡作
@@ -89,7 +89,7 @@ draft: false
 - [x] 天才王子的赤字国家振兴术
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 恋语轻唱：我说不好，我不好说，看原作吧，谢谢（读到这里请为竹岛老师哀悼三分钟）
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 亲吻那片花瓣「恋人的羁绊」：OVA，我宣布这就是簧片啊
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 和机器人啪啪啪能算在经验次数里吗？？：那不就是玩机器吗(bushi)，标题取胜
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 和机器人啪啪啪能算在经验次数里吗？？：那不就是玩机器吗 (bushi)，标题取胜
 
 ## 烂作
 
