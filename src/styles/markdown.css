@@ -40,6 +40,30 @@
     }
   }
 
+  mark {
+    background: #ffeb3b;
+    color: #171717;
+    padding: 0.08em 0.18em;
+    border-radius: 0.15em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+
+    strong,
+    em,
+    del,
+    a:not(.no-styling) {
+      color: inherit;
+    }
+
+    a:not(.no-styling) {
+      &:hover,
+      &:active {
+        background: transparent;
+        border-bottom-color: currentColor;
+      }
+    }
+  }
+
   code {
     @apply bg-(--inline-code-bg) text-(--inline-code-color) px-1 py-0.5 rounded-md overflow-hidden;
 

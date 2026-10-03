@@ -33,6 +33,7 @@ import rehypeEmailProtection from "./src/plugins/rehype-email-protection.mjs";
 import rehypeExternalLinks from "./src/plugins/rehype-external-links.mjs";
 import rehypeFigure from "./src/plugins/rehype-figure.mjs";
 import { remarkImageGrid } from "./src/plugins/remark-image-grid.js";
+import { remarkHighlight } from "./src/plugins/remark-highlight.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -190,6 +191,7 @@ export default defineConfig({
 	markdown: {
 		remarkPlugins: [
 			remarkMath,
+			remarkHighlight,
 			remarkReadingTime,
 			remarkImageGrid,
 			remarkExcerpt,
