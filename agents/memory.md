@@ -8,16 +8,18 @@
 - Retain pnpm 9.14.4 and the locked dependency graph. No incidental upgrades.
 - Root README is formal English. New commits need English `type(scope): summary` subjects, substantive English bodies, and one concern per commit.
 - The user approved the archive design and explicitly authorized commit and push after verification, superseding the earlier visual-review push gate. Preserve a local preview for inspection. Obtain authorization again for unrelated future pushes.
-- The approved authoring layout is root `content/posts/`, `content/moments/`, and `content/spec/`. Preserve collection-relative paths and public routes. Gallery images remain in `public/gallery/` and metadata in `src/config/galleryConfig.ts`; do not migrate them or create a separate photo-wall data copy without approval.
+- The approved authoring layout is root `content/posts/`, `content/moments/`, and `content/spec/`; editable configuration is now root `config/`. Preserve collection-relative paths and public routes. Gallery images remain in `public/gallery/` and metadata in `config/galleryConfig.ts`; do not create a separate photo-wall data copy without approval.
 - Keep agent documentation in the visible root `agents/` directory, not a dot-prefixed directory, and track it together with `AGENTS.md`.
+- Global Markdown `==text==` highlights use the syntax-aware `remarkHighlight` plugin and bright-yellow `mark` styling in both themes. Preserve escaped delimiters, code, math, links, and authored wording. Keep authored cover-library assets even when not yet referenced; unused inherited local music samples have been removed, while the configured Meting playlist remains.
 
 ## Architecture and verification
 
 - `src/content.config.ts` defines Astro collections and root-content loaders. `scripts/new-post.js` and `_frontmatter.json` use `content/posts/`.
 - `src/pages/posts/[...slug].astro` renders articles; `src/utils/content-utils.ts` supplies collection data. Nested relative cover images must resolve from root content in article pages, cards, and sharing metadata, not only from `src/`. Inline Markdown images use Astro's asset handling.
-- `src/pages/moments.astro` derives short-form dates from filenames; `src/pages/about.astro` loads `content/spec/about.md`.
+- `src/pages/moments.astro` derives short-form dates from filenames through `src/utils/activity-utils.mjs`; `src/pages/about.astro` loads `content/spec/about.md`. Latest site activity is the maximum of post publication dates, later update dates, and moment filename dates; it must not reorder publication-based archives or use filesystem/Git timestamps.
 - `src/components/controls/ArchivePanel.svelte` preserves publication-based ordering, year grouping, and the left `MM-DD` marker. Only an `updated` date strictly later than `published` appears as muted full-date metadata beside the timeline/title, including mobile. Reuse `I18nKey.updatedAt` and `formatDateToYYYYMMDD`; use semantic dates and accessible descriptions. No filesystem or Git timestamp fallback.
 - `pnpm test:content` checks real rendered article pages; the server must be running. `pnpm test:authoring` tests nested creation and overwrite protection in temporary directories. `pnpm test:data` covers Steam-history behavior. Use browser evidence for archive hydration, filters, themes, keyboard navigation, and mobile layout.
+- `pnpm exec node scripts/test-site-activity.mjs` covers activity-date boundaries. `pnpm exec node scripts/test-markdown-highlight.mjs` exercises the installed Astro Markdown compiler for delimiter, escape, nesting, code, math, and link semantics.
 - `pnpm build` runs icon generation, local koma-bell synchronization, Steam refresh, Astro, and Pagefind. For non-preprocessing verification use `pnpm astro build` then `pnpm exec pagefind --site dist`; network integrations may still run. Never commit credentials or incidental generated snapshots.
 
 ## Deferred work

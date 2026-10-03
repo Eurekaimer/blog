@@ -47,10 +47,18 @@ Astro may still fetch external integrations. This is not an offline build.
 - Create an article with `pnpm new-post <filename>`; nested names are supported. Articles live in `content/posts/`.
 - Short-form posts live in `content/moments/`.
 - Standalone content, including the About page, lives in `content/spec/`.
-- Gallery metadata is configured in `src/config/galleryConfig.ts`; images live in `public/gallery/<album-id>/`.
-- Site settings and integration identifiers live in `src/config/siteConfig.ts`.
+- Gallery metadata is configured in `config/galleryConfig.ts`; images live in `public/gallery/<album-id>/`.
+- Site settings and integration identifiers live in `config/siteConfig.ts`; all editable settings and custom footer content live in root `config/`.
 
-The root `content/` directory is the authoring entry point. Rendering code, components, and collection schemas remain in `src/`; gallery storage is unchanged. Moving an article between these authoring roots is not a URL-management mechanism: preserve its collection-relative path to preserve its public URL.
+The root `content/` directory is the authoring entry point, and `config/` is the configuration entry point. Rendering code, components, collection schemas, and shared configuration types remain in `src/`; gallery storage is unchanged. Moving an article between these authoring roots is not a URL-management mechanism: preserve its collection-relative path to preserve its public URL.
+
+Gallery album IDs use lowercase kebab-case and must match their directories. The current collections include `liz-and-blue-bird` (莉兹与青鸟), `koi-yori-aoku` (恋より青く), `amayo-no-tsuki` (雨夜明月), `math-news` (数学摘录), and `love-or-game-over` (不恋爱就完蛋了). Numbered photo filenames preserve their display order; explicit cover paths in the configuration are relative to the site root before the `/blog` base is added.
+
+Prose-only proofreading preserves publication and modification dates, article paths, code, mathematics, and link targets. Correct clear spacing, spelling, and grammar errors without rewriting the author's opinions or diary voice.
+
+Markdown prose supports `==highlighted text==`, rendered as a bright-yellow semantic highlight with readable dark text in both themes. Highlights can contain emphasis and links; escaped delimiters, code, mathematics, and link destinations remain unchanged. Only paired `==` delimiters within one inline block are recognized.
+
+Latest site activity combines article publication dates, later modification dates, and short-form post dates. Article ordering and archive year groups remain publication-based.
 
 Use [`.env.example`](.env.example) as the template for an ignored `.env.local`. Never commit credentials.
 
@@ -64,11 +72,14 @@ Configure `siteConfig.bangumi.userId` for Bangumi collections. The snapshot work
 pnpm check
 pnpm test:data
 pnpm test:authoring
+pnpm exec node scripts/test-site-activity.mjs
+pnpm exec node scripts/test-markdown-highlight.mjs
 # Start the development server or production preview before this command:
 pnpm test:content
+pnpm test:gallery
 ```
 
-`test:data` checks Steam-history behavior. `test:content` fetches rendered article pages and checks the selected collapsed comment and directly readable articles. Its default base URL is `http://127.0.0.1:4321/blog/`; override it with `pnpm test:content <base-url>`. Unreachable pages and non-200 responses fail the check.
+`test:data` checks Steam-history behavior. `test:content` fetches rendered article pages and checks the selected collapsed comment and directly readable articles. `test:gallery` follows album return links and verifies that they reach the gallery under the configured base path. Both rendered-page checks default to `http://127.0.0.1:4321/blog/`; override the URL with `pnpm test:content <base-url>` or `pnpm test:gallery <base-url>`. Unreachable pages and non-200 responses fail the checks.
 
 `test:authoring` runs isolated Node tests for nested article creation in `content/posts/` and protection against overwriting existing articles.
 
