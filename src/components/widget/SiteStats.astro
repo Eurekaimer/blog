@@ -1,9 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 import WidgetLayout from "@/components/common/WidgetLayout.astro";
 import { siteConfig } from "@config";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
+import { getLastActivityDate } from "@/utils/activity-utils.mjs";
 import {
 	getCategoryList,
 	getSortedPosts,
@@ -24,6 +26,7 @@ const siteStartDate = siteConfig.siteStartDate || "2025-01-01";
 const posts = await getSortedPosts();
 const categories = await getCategoryList();
 const tags = await getTagList();
+const moments = await getCollection("moments");
 
 // 计算总字数
 let totalWords = 0;
@@ -49,15 +52,8 @@ function formatNumber(num: number): string {
 	return num.toLocaleString();
 }
 
-// 获取最新文章日期（用于客户端计算）
-const latestPost = posts.reduce((latest, post) => {
-	if (!latest) return post;
-	return post.data.published > latest.data.published ? post : latest;
-}, posts[0]);
-
-const lastPostDate = latestPost
-	? latestPost.data.published.toISOString()
-	: null;
+// 使用文章发布、更新和动态日期计算最后活动时间
+const lastActivityDate = getLastActivityDate(posts, moments)?.toISOString() ?? null;
 
 const todayText = i18n(I18nKey.today);
 
@@ -132,7 +128,7 @@ const stats = [
   </div>
 </WidgetLayout>
 
-<script is:inline define:vars={{ siteStartDate, lastPostDate, todayText }}>
+<script is:inline define:vars={{ siteStartDate, lastActivityDate, todayText }}>
   function updateDynamicStats() {
     const today = new Date();
 
@@ -147,10 +143,10 @@ const stats = [
     });
 
     // 更新最后活动时间
-    if (lastPostDate) {
-      const lastPost = new Date(lastPostDate);
-      const timeSinceLastPost = Math.abs(today.getTime() - lastPost.getTime());
-      const daysSinceLastUpdate = Math.floor(timeSinceLastPost / (1000 * 60 * 60 * 24));
+    if (lastActivityDate) {
+      const lastActivity = new Date(lastActivityDate);
+      const timeSinceLastActivity = Math.abs(today.getTime() - lastActivity.getTime());
+      const daysSinceLastUpdate = Math.floor(timeSinceLastActivity / (1000 * 60 * 60 * 24));
 
       const lastUpdateElements = document.querySelectorAll('[data-stat-id="last-update"]');
       lastUpdateElements.forEach((element) => {

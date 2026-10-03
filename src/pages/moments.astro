@@ -4,14 +4,7 @@ import MomentsTimeline from "@/components/pages/MomentsTimeline.astro";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
-
-function parseMomentDate(id: string) {
-	const filename = id.split("/").pop()?.replace(/\.mdx?$/, "") ?? id;
-	const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})-(\d{2})(\d{2})$/);
-	if (!match) return new Date(0);
-	const [, year, month, day, hour, minute] = match;
-	return new Date(Number(year), Number(month) - 1, Number(day), Number(hour), Number(minute));
-}
+import { parseMomentDate } from "@/utils/activity-utils.mjs";
 
 function formatDate(date: Date) {
 	return new Intl.DateTimeFormat("zh-CN", {
