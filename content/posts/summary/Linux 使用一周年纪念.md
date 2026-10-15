@@ -3,7 +3,7 @@ title: Linux 使用一周年纪念
 published: 2026-08-24
 updated: 2026-09-14
 pinned: false
-image: https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/20260824094808348.png
+image: https://raw.githubusercontent.com/Eurekaimer/MyIMGs/main/img/20260824094808348.png
 tags: [Linux, NixOS, CachyOS, 键盘流, 开源]
 category: 总结
 draft: false
