@@ -11,6 +11,7 @@
 - The approved authoring layout is root `content/posts/`, `content/moments/`, and `content/spec/`; editable configuration is now root `config/`. Preserve collection-relative paths and public routes. Gallery images remain in `public/gallery/` and metadata in `config/galleryConfig.ts`; do not create a separate photo-wall data copy without approval.
 - Keep agent documentation in the visible root `agents/` directory, not a dot-prefixed directory, and track it together with `AGENTS.md`.
 - Global Markdown `==text==` highlights use the syntax-aware `remarkHighlight` plugin and bright-yellow `mark` styling in both themes. Preserve escaped delimiters, code, math, links, and authored wording. Keep authored cover-library assets even when not yet referenced; unused inherited local music samples have been removed, while the configured Meting playlist remains.
+- Site Latin text uses Monaspace Radon (Fontsource CSS via jsDelivr, pinned) ahead of LXGW WenKai Screen for CJK, per explicit user approval. Code blocks keep JetBrains Mono Variable; do not reselect the site font without asking.
 
 ## Architecture and verification
 
