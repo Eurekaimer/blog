@@ -30,7 +30,7 @@ draft: false
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> Girls Band Cry：近年来少女乐队题材我心中的真正 GOAT，向命运发出呐喊的歌声，真正真实的矛盾的对立冲突，风格正中我的好球区，3D 和作画极其强大
 - [x] 葬送的芙莉莲：在平淡叙事中积累感动的作品，草蛇灰线，伏脉千里
 - [x] 紫罗兰永恒花园：入坑作，永远难以忘怀的一部作品，作画极其精良，感情纯粹
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 终将成为你：伟大的百合，伟大的作画，伟大的音乐，伟大的细节，最震惊的硬核百合
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 终将成为你：伟大的百合，伟大的作画，伟大的音乐，伟大的细节，最震撼的硬核百合
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 白箱：切入点与众不同，详细展示了动漫业从业人员的工作和日常，在平淡中有真实的感动，并且还穿插有一些历史叙事，是一部出色的作品
 - [x] 冰菓：个人的性格使然，轻松而又不轻松的校园推理动漫（但是很多人都觉得这个很无聊，那么我觉得可能需要考虑是否能够对得上电波再考虑观看）
 - [x] 轻音少女：开创性的作品，打开了萌纪元，我想看第三季(2025.9.14)，我好想看第三季啊！！！！！！！
@@ -43,7 +43,7 @@ draft: false
 - [x] 坏女孩：我挺喜欢的，比较轻松日常的喜剧
 - [x] 孤独摇滚：慕名而来，可能没有达到心理的预期，虽然本人也是社恐，但是不太有共鸣，确实是非常不错的作品了
 - [x] 败犬女主太多了：有最喜欢的角色小鞠知花，但是整体题材限制恐怕没有达到神作的潜力
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 樱 trick：kiss kiss 的过程
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 樱 Trick：kiss kiss 的过程
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> citrus～柑橘味香气～：柑橘味的由来，但是动漫表现可能比不上漫画那么出色
 - [x] BanG Dream! It's MyGO!!!!!：意外的成功吗？开创了少女乐队的一种新视角，个人的话喜欢角色大于喜欢番剧本身了
 - [x] 干物妹！小埋：有喜欢的角色（切绘），整体节奏感偏轻松，在轻松这一块少有能比肩 K-ON 的
@@ -103,4 +103,4 @@ draft: false
 ## 百合小说
 
 - [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 关于佐伯沙弥香：入间人间执笔的终将外传，补完了沙弥香的过去与未来，文笔极佳
-- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 女性向游戏女主角。..：转生恶役流的经典之作，虽然是轻小说但是百合度很高
+- [x] <img class="yuri-icon" src="/blog/assets/icons/yuri-lily.svg" alt="百合" title="百合" /> 女性向游戏女主角……：转生恶役流的经典之作，虽然是轻小说但是百合度很高

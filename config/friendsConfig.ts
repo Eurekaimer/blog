@@ -26,7 +26,7 @@ export const friendsConfig: FriendLink[] = [
 		title: "笔记站",
 		imgurl: "https://avatars.githubusercontent.com/u/88918522?v=40",
 		desc: "「そばにいて」",
-		siteurl: "https://www.eurekaimer.icu/Stathelper/",
+		siteurl: "https://www.eurekaimer.icu/notes/",
 		tags: ["Blog"],
 		weight: 10, // 权重，数字越大排序越靠前
 		enabled: true, // 是否启用
