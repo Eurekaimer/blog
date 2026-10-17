@@ -3,7 +3,7 @@ title: Linux 使用一周年纪念
 published: 2026-08-24
 updated: 2026-09-14
 pinned: false
-image: https://raw.githubusercontent.com/Eurekaimer/MyIMGs/main/img/20260824094808348.png
+image: https://cdn.jsdelivr.net/gh/Eurekaimer/TOUKO-IMGBED-02@main/objects/default/sha256/04/55/04557f5581332a087e6346f093bdb11989faa88a74d6d7c1b21bf75f570d3745.png
 tags: [Linux, NixOS, CachyOS, 键盘流, 开源]
 category: 总结
 draft: false
@@ -32,7 +32,7 @@ draft: false
 
 好像跑题了，但是正是在这一过程（代码复现）中，我再一次地接触到了 Linux，或者更准确地说：It's Fxxking Ubuntu 22.04。大量的 AI 项目需要使用这个版本，而这个版本已经老得出奇，有些包并不好用，兼容性出现了一些问题。出于想要亲身体验的原因，我在一块硬盘内安装了 Ubuntu 24.04（我认为比 26 和 22 都好一些，并且这里值得说道说道：多亏了我喜欢买固态硬盘来存系统和资料/番剧，现在我手上有两块固态硬盘，卖掉其中一块就可以收回原本两块的本金，甚至还能小赚一点）。
 
-![去年的暑假](https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/20260824070410569.png)
+![去年的暑假](https://cdn.jsdelivr.net/gh/Eurekaimer/TOUKO-IMGBED-03@main/objects/default/sha256/88/67/88678d1ddd03158da7b0ace2a5996bfe17ea792149cff96861b48bd9feeb7402.png)
 
 Ubuntu 在深度学习领域的权威是毋庸置疑的，对于 N 卡的支持做得最好，并且网络上有着大量的解决方案，是最普及的发行版，也是新手入门的好选择（这都是当时看到的帖子里面一致认可的，当然，后面我发现了在 AI 的帮助下安装任何发行版都不是太大的问题了）。再然后是折腾桌面环境和相关的软件（输入法要安装，浏览器也要配置，代理工具依然是必不可少的），一句话总结就是，大概是在 KDE 桌面上把 Ubuntu 弄得一股果味吧。
 
@@ -62,7 +62,7 @@ Ubuntu 在深度学习领域的权威是毋庸置疑的，对于 N 卡的支持�
 
 下面这张图片可以很好地说明我的发行版使用历程：
 
-![发行版大战](https://cdn.jsdelivr.net/gh/Eurekaimer/MyIMGs@main/img/20260824094808348.png)
+![发行版大战](https://cdn.jsdelivr.net/gh/Eurekaimer/TOUKO-IMGBED-02@main/objects/default/sha256/04/55/04557f5581332a087e6346f093bdb11989faa88a74d6d7c1b21bf75f570d3745.png)
 
 > [!warning] 社区生态
 > 补充一点吧，选择 Arch 系还有一个很重要的原因是社区生态，对的就是社区生态。虽然传教士小鬼很多，但是里面确实也不乏认真帮助别人的技术大牛，你所遇到的问题可以被很快地解决（比如很多人一提到 Arch 就会说 ArchWiki 多么多么好，但是我想说，有大模型的话其实工作量被精简了相当多，直接让 AI 检索然后反哺的效率是大于自己啃 Wiki 的，不如说 Wiki 也已经被参数化了）。而 NixOS 由于一些原因（似乎有一些社区政治的发生），整个社区实际上不那么团结，而且存在大量低质量包和无人问津的 issue。就拿我自己举例：我用某个软件的 nix 包时遇到了 bug，反馈到对应项目的仓库，维护者的回复是没有相关的环境、并不清楚问题；后来我又发现，打包者技术确实不过关，打包的时候引入了一些额外的错误，而且一些早就在最新版修好的问题，nix 打包者也没有 follow 上游的更新。

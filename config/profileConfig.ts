@@ -24,7 +24,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "qq",
 			icon: "fa7-brands:qq",
-			url: "https://raw.githubusercontent.com/Eurekaimer/MyIMGs/refs/heads/main/img/QQ.png",
+			url: "https://cdn.jsdelivr.net/gh/Eurekaimer/TOUKO-IMGBED-04@main/objects/default/sha256/8c/3f/8c3f2287f2b148e2aaacd27dc73a91ae62148fec5ca8d91d6542e71af7563059.png",
 			showName: false,
 		},
 		{
