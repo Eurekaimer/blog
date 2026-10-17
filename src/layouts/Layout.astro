@@ -79,7 +79,7 @@ if (title) {
 
 let ogImageUrl: string | undefined;
 if (siteConfig.generateOgImages && postSlug) {
-	ogImageUrl = new URL(`/og/${postSlug}.png`, Astro.site).toString();
+	ogImageUrl = new URL(url(`/og/${postSlug}.png`), Astro.site).toString();
 }
 
 const favicons: Favicon[] =
@@ -498,7 +498,7 @@ const siteLang = lang.replace("_", "-");
       rel="alternate"
       type="application/rss+xml"
       title={profileConfig.name}
-      href={`${Astro.site}rss.xml`}
+      href={url("rss.xml")}
     />
 
     <!-- Font Manager -->

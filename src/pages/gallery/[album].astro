@@ -10,7 +10,7 @@ import { url } from "@/utils/url-utils";
 
 // 检查页面是否启用
 if (!siteConfig.pages.gallery) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(url("/404.html"));
 }
 
 export function getStaticPaths() {
@@ -23,7 +23,7 @@ const { album: albumId } = Astro.params;
 const albumMeta = galleryConfig.albums.find((a) => a.id === albumId);
 
 if (!albumMeta) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(url("/404.html"));
 }
 
 const photos = scanAlbumPhotos(albumMeta.id);

@@ -13,7 +13,7 @@ import {
 } from "@/utils/steam-history.mjs";
 
 if (!siteConfig.pages.steam) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(`${import.meta.env.BASE_URL}404.html`);
 }
 
 type SteamOwnedGame = {

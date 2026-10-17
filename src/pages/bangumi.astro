@@ -17,7 +17,7 @@ import mangaProgressSnapshot from "@/data/bangumi-manga-progress.json";
 
 // 检查页面是否启用
 if (!siteConfig.pages.bangumi) {
-	return Astro.redirect("/404/");
+	return Astro.redirect(`${import.meta.env.BASE_URL}404.html`);
 }
 
 // 获取构建时间
