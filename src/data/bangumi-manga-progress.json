@@ -1,8 +1,15 @@
 {
   "userId": "1191748",
-  "updatedAt": "2026-10-21T20:06:20.185Z",
-  "total": 9,
+  "updatedAt": "2026-10-25T18:59:15.468Z",
+  "total": 10,
   "items": [
+    {
+      "subjectId": 559223,
+      "name": "月不会数羊",
+      "url": "https://bgm.tv/subject/559223",
+      "progressVol": 0,
+      "totalVol": 3
+    },
     {
       "subjectId": 533647,
       "name": "无法在真学姐的面前保持帅气！",
