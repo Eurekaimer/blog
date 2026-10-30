@@ -64,7 +64,7 @@ Use [`.env.example`](.env.example) as the template for an ignored `.env.local`. 
 
 Steam requires `STEAM_API_KEY` and `siteConfig.steam.steamId`. Configure the matching `STEAM_API_KEY` repository secret for GitHub Actions. `pnpm steam:history` refreshes `src/data/steam-history.json`.
 
-Configure `siteConfig.bangumi.userId` for Bangumi collections. The snapshot workflow accepts `BANGUMI_USER_ID` as an Actions secret or variable, with the site configuration as its fallback. `pnpm manga:sync` reads local koma-bell subscriptions/state; its default project directory is the sibling `../koma-bell`, configurable through `KOMA_BELL_DIR`.
+Configure `siteConfig.bangumi.userId` with your Bangumi username (the part after `/user/` in your profile URL), not the numeric account ID. The snapshot workflow accepts the same username as `BANGUMI_USER_ID` in an Actions secret or variable, with the site configuration as its fallback. `pnpm manga:sync` reads local koma-bell subscriptions/state; its default project directory is the sibling `../koma-bell`, configurable through `KOMA_BELL_DIR`.
 
 ## Verification
 

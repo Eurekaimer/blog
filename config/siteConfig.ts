@@ -111,8 +111,8 @@ export const siteConfig: SiteConfig = {
 
 	// bangumi配置
 	bangumi: {
-		// Bangumi用户ID
-		userId: "1191748",
+		// Bangumi 用户名（个人主页 /user/ 后面的部分）
+		userId: "eurekaimer",
 		// 条目类型排序，数组中的类型将按顺序优先展示
 		// 可选值: "anime" | "book" | "music" | "game" | "real" (暂不支持"real"类型)
 		// 未列出的类型将按默认顺序排在后面
