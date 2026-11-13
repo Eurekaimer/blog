@@ -14,6 +14,13 @@ export const galleryConfig: GalleryConfig = {
 		// tags: 相册标签，用于分类和过滤
 		// 每添加一个数组项就相当于添加了一个相册，记得在 public/gallery/ 目录下创建对应的子目录并放入图片
 		{
+			id: "rust-jokes",
+			name: "Rust 笑话",
+			description: "Rust 编程笑话的截图。",
+			date: "2026-11-13",
+			tags: ["Rust", "编程", "笑话"],
+		},
+		{
 			id: "math-news",
 			name: "数学摘录",
 			description: "关于数学研究、理解与 AI 协作的文字摘录。",
