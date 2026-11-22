@@ -4,7 +4,7 @@ published: 2025-05-19
 updated: 2026-09-14
 pinned: false
 description: GBC 快闪
-image: https://img.eurekaimer.icu/objects/default/befcd629-09e8-41d2-a037-f2a49f4daabf.webp
+image: https://img.eurekaimer.icu/20261018100054-0029.webp
 tags: [旅行, GBC, 明日方舟]
 category: 旅行
 draft: false
@@ -14,7 +14,7 @@ draft: false
 
 nina 镇楼
 
-![nina](https://img.eurekaimer.icu/objects/default/befcd629-09e8-41d2-a037-f2a49f4daabf.webp)
+![nina](https://img.eurekaimer.icu/20261018100054-0029.webp)
 
 上周订了前往北京的车票后，一整周都是一个非常兴奋且压抑的状态，在出发前的一晚兴奋到了两点才睡，不过到了现场之后感受了美好的氛围后感到非常值得，直到现在写这篇文章时我仍然在回味这次 GBC 快闪。
 
@@ -38,7 +38,7 @@ nina 镇楼
 > [!tip] 悼念
 > 于此纪念一位伟大的应用数学家，我曾受益于您的教材，并且在后续的泛函分析课程中也将阅读您的著作。
 
-![Lax](https://img.eurekaimer.icu/objects/default/15815de2-1687-4a27-859a-d5b8d402030a.webp)
+![Lax](https://img.eurekaimer.icu/20261018100052-0000.webp)
 
 ## 于是选择出逃
 
@@ -50,7 +50,7 @@ nina 镇楼
 
 PS：轻小说也有很多，如果有感兴趣的以后也可以在那里购买，我是很惊讶于北京的谷店居然如此多的，不过据北京同学说原本其实并不多只是我赶上了而已。
 
-![KON-goods](https://img.eurekaimer.icu/objects/default/4de312dd-6fa3-4f4e-9a5c-508900a34b0d.webp)
+![KON-goods](https://img.eurekaimer.icu/20261018100052-0004.webp)
 
 逛了一会谷子店之后就饿了，随便找了家店去填了填肚子，刚好约了一个粥群的群 u 就开启了双人模式
 
@@ -58,11 +58,11 @@ PS：轻小说也有很多，如果有感兴趣的以后也可以在那里购买
 
 第一件事自然就是打卡了商场内的所有合照点，还穿着不登校和 mmk 合影了！
 
-![打卡](https://img.eurekaimer.icu/objects/default/bb837361-c394-44c7-b549-6af7e67115d9.webp)
+![打卡](https://img.eurekaimer.icu/20261018100054-0028.webp)
 
 合影（感谢摄影师 @pr，虽然他应该看不到）：
 
-![合影](https://img.eurekaimer.icu/objects/default/1477211b-f853-4a43-a5df-a0d2a46e2bb5.webp)
+![合影](https://img.eurekaimer.icu/20261018100051-0003.webp)
 
 ### GBC！
 
@@ -70,23 +70,23 @@ PS：轻小说也有很多，如果有感兴趣的以后也可以在那里购买
 
 先是我最喜欢的小孩姐的图，场馆外有 Beijing 快闪的城市限定打卡，也有一个演播厅播放刺团的问候视频和歌曲（老冰真带劲！），在那里待了挺久，看了两遍视频！也有很多 GBC 的原画集，不过因为是原创的关系不让拍照（我是乖孩子！），小孩姐在湖边那张真好看吧！
 
-![](https://img.eurekaimer.icu/objects/default/8aea3e01-a0c6-4853-b975-8e4618298312.webp)
+![](https://img.eurekaimer.icu/20261018100055-0001.webp)
 
 然后是刺团的三位（希望马上回到五位）的寄语，然后是粉丝留言，各位刺团粉丝真的都很会画画！
 
-![](https://img.eurekaimer.icu/objects/default/4bfc7c95-d144-482a-9e9e-ce96b624094e.webp)
+![](https://img.eurekaimer.icu/20261018100050-0011.webp)
 
-![](https://img.eurekaimer.icu/objects/default/bfe6b12b-efb4-4c3a-8184-22cb02dd6ad6.webp)
+![](https://img.eurekaimer.icu/20261018100049-0014.webp)
 
-![](https://img.eurekaimer.icu/objects/default/8377c77b-ab86-4fab-b759-5dad3a66dceb.webp)
+![](https://img.eurekaimer.icu/20261018100050-0017.webp)
 
 我的集章和留言：希望刺团来天津开 Live 啊！
 
-![](https://img.eurekaimer.icu/objects/default/3a211557-09e9-4773-a609-c694cd6d5f03.webp)
+![](https://img.eurekaimer.icu/20261018100050-0005.webp)
 
 然后就是在谷子售卖区疯狂买谷了，很幸运的是，在全部单抽的情况下，出的全是我想要的（两个隐藏款，小孩姐，486，tomo）
 
-![GBC-goods](https://img.eurekaimer.icu/objects/default/13499133-58f1-4a2f-adb0-312d610c095d.webp)
+![GBC-goods](https://img.eurekaimer.icu/20261018100053-0000.webp)
 
 ### 粥
 
@@ -96,7 +96,7 @@ PS：轻小说也有很多，如果有感兴趣的以后也可以在那里购买
 
 因为走了大半天实在是太累了于是就找了甜品店，我点了抹茶芭菲(doge)
 
-![抹茶芭菲](https://img.eurekaimer.icu/objects/default/4a19cbeb-37a1-4e94-ab9f-6a2143b35dfd.webp)
+![抹茶芭菲](https://img.eurekaimer.icu/20261018100050-0010.webp)
 
 给朋友科普了一下 Mujica（本次与明日方舟联动，海猫络合物五字神人实锤），直接被神人剧情吓晕，表示非常期待联动和联动角色，原本还想去一次 A 咖的，不过因为距离太远时间不足于是只好作罢，踏上了回天津的路，总的来说非常开心（和群 u 面基聊得还很开心）
 
@@ -104,6 +104,6 @@ PS：轻小说也有很多，如果有感兴趣的以后也可以在那里购买
 
 在旅行的结尾，北京南站的闸口前与友人合影
 
-![Ending](https://img.eurekaimer.icu/objects/default/b3a264b3-4abb-430b-8c63-8c3a1bf7ec70.webp)
+![Ending](https://img.eurekaimer.icu/20261018100050-0029.webp)
 
 再次祈求一场 LIVE！

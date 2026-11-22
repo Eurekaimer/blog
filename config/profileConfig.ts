@@ -24,7 +24,7 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "qq",
 			icon: "fa7-brands:qq",
-			url: "https://img.eurekaimer.icu/objects/default/a69390b0-3e05-41d0-906f-9ae66a96dd72.webp",
+			url: "https://img.eurekaimer.icu/20261018100054-0026.webp",
 			showName: false,
 		},
 		{

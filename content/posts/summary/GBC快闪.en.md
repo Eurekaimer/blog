@@ -7,7 +7,7 @@ description: A day trip to Beijing for the Girls Band Cry pop-up store.
 
 Nina to open the post
 
-![nina](https://img.eurekaimer.icu/objects/default/befcd629-09e8-41d2-a037-f2a49f4daabf.webp)
+![nina](https://img.eurekaimer.icu/20261018100054-0029.webp)
 
 After booking a ticket to Beijing last week, I spent the whole week in a state that was both very excited and very pent up. The night before leaving I was so excited I didn't fall asleep until two. But once I got there and soaked up the lovely atmosphere, it felt completely worth it. Even now, writing this post, I'm still savoring this GBC pop-up.
 
@@ -31,7 +31,7 @@ After booking a ticket to Beijing last week, I spent the whole week in a state t
 > [!tip] In memoriam
 > In memory of a great applied mathematician. I benefited from your textbook, and I'll be reading your work in my functional analysis course as well.
 
-![Lax](https://img.eurekaimer.icu/objects/default/15815de2-1687-4a27-859a-d5b8d402030a.webp)
+![Lax](https://img.eurekaimer.icu/20261018100052-0000.webp)
 
 ## So I chose to run away
 
@@ -43,7 +43,7 @@ I'd originally arranged to go out with a friend, but plans changed at the last m
 
 P.S.: There are also plenty of light novels, so if you're interested you can buy them there in the future. I was really surprised that Beijing has so many merch stores, though according to my Beijing classmates there weren't actually many before, and I just happened to catch it.
 
-![KON-goods](https://img.eurekaimer.icu/objects/default/4de312dd-6fa3-4f4e-9a5c-508900a34b0d.webp)
+![KON-goods](https://img.eurekaimer.icu/20261018100052-0004.webp)
 
 After browsing the merch stores for a while I got hungry, so I picked a random shop and filled my stomach. Just then I met up with a member of an Arknights group chat and we switched to two-player mode.
 
@@ -51,11 +51,11 @@ After browsing the merch stores for a while I got hungry, so I picked a random s
 
 The first thing, naturally, was to check in at every photo spot in the mall. I even took a photo with mmk while wearing my Futoukou shirt!
 
-![Check-in](https://img.eurekaimer.icu/objects/default/bb837361-c394-44c7-b549-6af7e67115d9.webp)
+![Check-in](https://img.eurekaimer.icu/20261018100054-0028.webp)
 
 The group photo (thanks to the photographer @pr, though he probably won't see this):
 
-![Group photo](https://img.eurekaimer.icu/objects/default/1477211b-f853-4a43-a5df-a0d2a46e2bb5.webp)
+![Group photo](https://img.eurekaimer.icu/20261018100051-0003.webp)
 
 ### GBC!
 
@@ -63,23 +63,23 @@ Then came the biggest destination of this flash trip: the GBC pop-up store. It h
 
 First, pictures of my favorite, Nina. Outside the venue there was a Beijing pop-up city-exclusive photo spot, and there was also a screening room playing the band's greeting video and songs (老冰 really slaps!). I stayed there quite a while and watched the video twice! There were also many GBC original art collections, but since they're original works photography wasn't allowed (I'm a good kid!). That picture of Nina by the lake is really beautiful, isn't it!
 
-![](https://img.eurekaimer.icu/objects/default/8aea3e01-a0c6-4853-b975-8e4618298312.webp)
+![](https://img.eurekaimer.icu/20261018100055-0001.webp)
 
 Then there were messages from the three members of the band (hoping they'll be back to five soon), and then fan messages. Every fan of the band really knows how to draw!
 
-![](https://img.eurekaimer.icu/objects/default/4bfc7c95-d144-482a-9e9e-ce96b624094e.webp)
+![](https://img.eurekaimer.icu/20261018100050-0011.webp)
 
-![](https://img.eurekaimer.icu/objects/default/bfe6b12b-efb4-4c3a-8184-22cb02dd6ad6.webp)
+![](https://img.eurekaimer.icu/20261018100049-0014.webp)
 
-![](https://img.eurekaimer.icu/objects/default/8377c77b-ab86-4fab-b759-5dad3a66dceb.webp)
+![](https://img.eurekaimer.icu/20261018100050-0017.webp)
 
 My stamps and message: I hope the band comes to Tianjin for a live!
 
-![](https://img.eurekaimer.icu/objects/default/3a211557-09e9-4773-a609-c694cd6d5f03.webp)
+![](https://img.eurekaimer.icu/20261018100050-0005.webp)
 
 Then I went on a buying spree in the merch sales area. Luckily, pulling only singles the whole time, everything I got was what I wanted (two secret variants, Nina, 486, and Tomo).
 
-![GBC-goods](https://img.eurekaimer.icu/objects/default/13499133-58f1-4a2f-adb0-312d610c095d.webp)
+![GBC-goods](https://img.eurekaimer.icu/20261018100053-0000.webp)
 
 ### Arknights
 
@@ -89,7 +89,7 @@ But when I reached the entrance I found they weren't queueing for Arknights at a
 
 Because I'd been walking around for most of the day I was really tired, so I found a dessert shop and ordered a matcha parfait (doge).
 
-![Matcha parfait](https://img.eurekaimer.icu/objects/default/4a19cbeb-37a1-4e94-ab9f-6a2143b35dfd.webp)
+![Matcha parfait](https://img.eurekaimer.icu/20261018100050-0010.webp)
 
 I gave my friend a crash course on Ave Mujica (this time collaborating with Arknights — 海猫络合物, five characters, a certified unhinged genius), and she was instantly stunned by the unhinged plot, saying she was really looking forward to the collab and the collab characters. I'd originally wanted to visit the A Café as well, but it was too far and I didn't have enough time, so I gave it up and got on the road back to Tianjin. Overall it was a lot of fun (and meeting the group chat person in real life and chatting was great too).
 
@@ -97,6 +97,6 @@ I gave my friend a crash course on Ave Mujica (this time collaborating with Arkn
 
 At the end of the trip, a group photo with my friend in front of the ticket gates at Beijing South Railway Station.
 
-![Ending](https://img.eurekaimer.icu/objects/default/b3a264b3-4abb-430b-8c63-8c3a1bf7ec70.webp)
+![Ending](https://img.eurekaimer.icu/20261018100050-0029.webp)
 
 Once again, I beg for a LIVE!

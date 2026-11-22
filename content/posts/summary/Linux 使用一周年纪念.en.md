@@ -26,7 +26,7 @@ Then came a year of study. I took part in an activity organized by my department
 
 I seem to have gone off topic, but it was in exactly this process (reproducing code) that I came into contact with Linux again — or more precisely: It's Fxxking Ubuntu 22.04. A huge number of AI projects need this version, and this version is absurdly old; some packages don't work well and compatibility problems come up. Because I wanted to experience it myself, I installed Ubuntu 24.04 on a hard drive (I think it's better than both 26 and 22, and it's worth mentioning here: thanks to my habit of buying SSDs to store systems and data/anime, I now have two SSDs, and selling one of them would recoup the principal for both — with even a little profit).
 
-![Last summer's vacation](https://img.eurekaimer.icu/objects/default/743097ad-a8cd-473a-8c9f-aef51dbaf62e.webp)
+![Last summer's vacation](https://img.eurekaimer.icu/20261018100051-0016.webp)
 
 Ubuntu's authority in deep learning is beyond doubt: it has the best Nvidia support, there are tons of solutions online, it's the most widespread distro and a good choice for beginners (this was the consensus in every post I saw at the time; later, of course, I found out that with AI's help, installing any distro isn't much of a problem). Then came fiddling with the desktop environment and related software (the input method has to be installed, the browser has to be configured, proxy tools are still indispensable). To sum it up in one sentence: I basically made Ubuntu on KDE look like an Apple product.
 
@@ -56,7 +56,7 @@ Given how capable agents are now, I don't think writing a quick install script t
 
 The image below illustrates my distro history quite well:
 
-![The distro wars](https://img.eurekaimer.icu/objects/default/a7ae6e88-89f5-48ea-b7a8-7a9e4bf2eb32.webp)
+![The distro wars](https://img.eurekaimer.icu/20261018100049-0010.webp)
 
 > [!warning] Community ecosystem
 > Let me add one point: another very important reason for choosing the Arch family is the community ecosystem — yes, the community ecosystem. Even though there are plenty of missionary brats, there really are technical experts who earnestly help others, and the problems you run into can be solved quickly (for example, whenever Arch comes up people say how great ArchWiki is, but I'd say with a large model the workload is cut down considerably; having AI retrieve and feed back is more efficient than chewing through the Wiki yourself — the Wiki has, so to speak, already been parameterized). NixOS, for certain reasons (there seems to have been some community politics), isn't really a united community, and it has a large number of low-quality packages and issues nobody looks at. Take my own case: I hit a bug using some software's nix package and reported it to the corresponding project's repo; the maintainer replied that they didn't have the relevant environment and didn't know what the problem was. Later I found out the packager's skills really weren't up to par: they introduced some extra errors while packaging, and some problems long fixed in the latest version weren't followed up by the nix packager either.
