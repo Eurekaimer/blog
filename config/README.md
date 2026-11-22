@@ -60,6 +60,7 @@ import { profileConfig } from '@config/profileConfig';
 - `pioConfig.ts` - Pio 模型配置（Spine、Live2D 等）
 - `adConfig.ts` - 广告配置（广告位设置等）
 - `friendsConfig.ts` - 友链配置（友链列表等）
+- `galleryConfig.ts` - 相册名称、日期、标签和封面。图片放在 `public/gallery/<id>/`，例如 `akuma-no-riddle-01.webp`。
 - `sponsorConfig.ts` - 赞助配置（赞助方式、二维码等）
 - `coverImageConfig.ts` - 封面图配置（随机封面图列表等）
 

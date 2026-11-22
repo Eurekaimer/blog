@@ -21,6 +21,13 @@ export const galleryConfig: GalleryConfig = {
 			tags: ["Rust", "编程", "笑话"],
 		},
 		{
+			id: "akuma-no-riddle",
+			name: "悪魔のリドル",
+			description: "动画《悪魔のリドル》（恶魔之谜）的截图。",
+			date: "2026-10-13",
+			tags: ["悪魔のリドル", "动画", "百合"],
+		},
+		{
 			id: "math-news",
 			name: "数学摘录",
 			description: "关于数学研究、理解与 AI 协作的文字摘录。",

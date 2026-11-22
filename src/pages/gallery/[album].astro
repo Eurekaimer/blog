@@ -45,7 +45,7 @@ const columnWidth = galleryConfig.columnWidth || 240;
         <!-- 返回按钮 -->
         <a
           href={url("/gallery/")}
-          class="absolute top-4 left-4 inline-flex items-center gap-1.5 text-sm text-white/90 hover:text-white bg-black/30 hover:bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-lg transition-colors"
+          class="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 text-sm text-white/90 hover:text-white bg-black/30 hover:bg-black/50 backdrop-blur-sm px-3 py-1.5 rounded-lg transition-colors"
         >
           <Icon name="material-symbols:arrow-back" class="text-base" />
           {i18n(I18nKey.galleryBackToAlbums)}
