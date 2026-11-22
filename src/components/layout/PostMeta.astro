@@ -40,6 +40,13 @@ const {
 } = Astro.props;
 
 const path = customPath || (id ? `/posts/${id}` : "");
+const publishedDate = formatDateToYYYYMMDD(published);
+const updatedDate =
+	!hideUpdateDate && updated && updated.getTime() !== published.getTime()
+		? formatDateToYYYYMMDD(updated)
+		: undefined;
+const publishedLabel = i18n(I18nKey.publishedAt);
+const updatedLabel = updatedDate ? i18n(I18nKey.updatedAt) : undefined;
 ---
 
 <div
@@ -59,31 +66,29 @@ const path = customPath || (id ? `/posts/${id}` : "");
   }
 
   <!-- publish date -->
-  <div class="flex items-center">
-    <div class="meta-icon">
+  <div class="flex items-center" title={publishedLabel}>
+    <div class="meta-icon" aria-hidden="true">
       <Icon
         name="material-symbols:calendar-today-outline-rounded"
         class="text-xl"
       />
     </div>
-    <span class="text-50 text-sm font-medium"
-      >{formatDateToYYYYMMDD(published)}</span
-    >
+    <span class="sr-only">{publishedLabel} </span>
+    <time class="text-50 text-sm font-medium whitespace-nowrap" datetime={publishedDate}>{publishedDate}</time>
   </div>
 
   <!-- update date -->
   {
-    !hideUpdateDate && updated && updated.getTime() !== published.getTime() && (
-      <div class="flex items-center">
-        <div class="meta-icon">
+    updatedDate && (
+      <div class="flex items-center" title={updatedLabel}>
+        <div class="meta-icon" aria-hidden="true">
           <Icon
             name="material-symbols:edit-calendar-outline-rounded"
             class="text-xl"
           />
         </div>
-        <span class="text-50 text-sm font-medium">
-          {formatDateToYYYYMMDD(updated)}
-        </span>
+        <span class="sr-only">{updatedLabel} </span>
+        <time class="text-50 text-sm font-medium whitespace-nowrap" datetime={updatedDate}>{updatedDate}</time>
       </div>
     )
   }

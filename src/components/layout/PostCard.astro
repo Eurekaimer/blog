@@ -32,6 +32,7 @@ const {
 	title,
 	url,
 	published,
+	updated,
 	tags,
 	category,
 	image,
@@ -42,6 +43,8 @@ const {
 	loading = "lazy",
 } = Astro.props;
 const className = Astro.props.class;
+const modificationDate =
+	updated && updated.getTime() > published.getTime() ? updated : undefined;
 
 // 处理随机图：如果image为"api"，则从配置的API获取随机图
 const processedImage = processCoverImageSync(image, entry.id);
@@ -109,6 +112,7 @@ const descriptionText = description || remarkPluginFrontmatter.excerpt || "";
     <!-- metadata -->
     <PostMetadata
       published={published}
+      updated={modificationDate}
       tags={tags}
       showTags={false}
       category={category || undefined}

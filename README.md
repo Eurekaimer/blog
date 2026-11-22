@@ -6,6 +6,7 @@ An [Astro](https://astro.build/) static site based on [Firefly](https://github.c
 
 - Long-form Markdown and MDX posts with categories, tags, RSS, and Pagefind search.
 - Publication-based archives that can also show a later modification date without disturbing chronology.
+- Post cards show the modification date alongside the publication date when the post was updated later.
 - Short-form posts, photo galleries with a lightbox, and Bangumi collection pages.
 - Steam library and playtime statistics backed by historical snapshots.
 - Friends, guestbook, sponsor, and About pages, plus generated Open Graph images.
