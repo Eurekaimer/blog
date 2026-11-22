@@ -5,6 +5,7 @@ An [Astro](https://astro.build/) static site based on [Firefly](https://github.c
 ## Features
 
 - Long-form Markdown and MDX posts with categories, tags, RSS, and Pagefind search.
+- Separate Chinese and English pages for About and paired posts, with a keyboard-accessible language switch.
 - Publication-based archives that can also show a later modification date without disturbing chronology.
 - Post cards show the modification date alongside the publication date when the post was updated later.
 - Short-form posts, photo galleries with a lightbox, and Bangumi collection pages.
@@ -25,6 +26,12 @@ Steam trend windows summarize the nearest available snapshots rather than fixed 
 ## Contributing
 
 See [AGENTS.md](AGENTS.md) for contribution rules and [project memory](agents/memory.md) for established requirements and deferred work. Commits use English Conventional Commit subjects, one concern per commit.
+
+### Bilingual content
+
+Keep the original post in `content/posts/` and place its English translation alongside it as `<filename>.en.md`. The translation's frontmatter has only `title` and `description`; the original controls publication dates, cover, tags, drafts, and passwords. Unpaired originals publish normally, but unregistered English files have no route.
+
+Register each pair in [`config/content-languages.toml`](config/content-languages.toml) as a `[[posts]]` entry with `zh` and `en` paths. Use exact paths relative to the repository root, not slugs or URLs. The `[about]` table points to the two Markdown files in `content/spec/`. English pages append `en/` to the original URL. Restart `pnpm dev` after changing the pairing file so Astro regenerates its static paths.
 
 ## License
 

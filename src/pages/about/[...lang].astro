@@ -1,0 +1,41 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+import Markdown from "@components/common/Markdown.astro";
+import LanguageToggle from "@components/controls/LanguageToggle.astro";
+import I18nKey from "@/i18n/i18nKey";
+import { getTranslation, i18n } from "@/i18n/translation";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+import { getAboutTranslations, type LanguageLinks } from "@/utils/content-languages";
+import { url } from "@/utils/url-utils";
+
+export async function getStaticPaths() {
+	const { zh, en } = await getAboutTranslations();
+	return [
+		{ params: { lang: undefined }, props: { entry: zh, active: "zh" } },
+		{ params: { lang: "en" }, props: { entry: en, active: "en" } },
+	];
+}
+
+interface Props {
+	entry: CollectionEntry<"spec">;
+	active: keyof LanguageLinks;
+}
+
+const { entry, active } = Astro.props;
+const { Content } = await render(entry);
+const lang = active === "en" ? "en" : undefined;
+const title = lang ? getTranslation(lang)[I18nKey.about] : i18n(I18nKey.about);
+const languageLinks = { zh: url("/about/"), en: url("/about/en/") };
+---
+<MainGridLayout title={title} description={title} lang={lang} languageLinks={languageLinks}>
+    <div class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32">
+        <div class="card-base z-10 px-9 py-6 relative w-full ">
+            <div class="flex justify-end mb-2">
+                <LanguageToggle active={active} hrefs={languageLinks} />
+            </div>
+            <Markdown class="mt-2">
+                <Content />
+            </Markdown>
+        </div>
+    </div>
+</MainGridLayout>

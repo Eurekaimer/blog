@@ -4,6 +4,7 @@ import { url } from "@/utils/url-utils";
 
 interface Props {
 	path: string;
+	postPath?: string;
 }
 
 const config = {
@@ -13,7 +14,7 @@ const config = {
 };
 ---
 
-<div id="tcomment"></div>
+<div id="tcomment" data-post-path={Astro.props.postPath}></div>
 <!-- 使用自编译的 Twikoo 文件，避免点赞等按钮导致页面触发滚动回顶部 https://github.com/twikoojs/twikoo/issues/721 -->
 <script is:inline src={url("/assets/js/twikoo.nocss.js")}></script>
 <link rel="stylesheet" href={url("/assets/css/twikoo.css")} />
@@ -28,10 +29,10 @@ const config = {
   }
 
   // 动态创建配置对象
-  function createTwikooConfig() {
+  function createTwikooConfig(commentEl) {
     return {
       ...config,
-      path: getCurrentPath(),
+      path: commentEl.dataset.postPath || getCurrentPath(),
       el: "#tcomment",
     };
   }
@@ -43,7 +44,7 @@ const config = {
       if (commentEl) {
         commentEl.innerHTML = "";
 
-        const dynamicConfig = createTwikooConfig();
+        const dynamicConfig = createTwikooConfig(commentEl);
         console.log("[Twikoo] 初始化配置:", dynamicConfig);
 
         twikoo

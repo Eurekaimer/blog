@@ -3,7 +3,7 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const postsCollection = defineCollection({
-	loader: glob({ pattern: "**/*.{md,mdx}", base: "./content/posts" }),
+	loader: glob({ pattern: ["**/!(*.en).md", "**/*.mdx"], base: "./content/posts" }),
 	schema: z.object({
 		title: z.string(),
 		published: z.date(),
@@ -31,6 +31,14 @@ const postsCollection = defineCollection({
 	}),
 });
 
+const postTranslationsCollection = defineCollection({
+	loader: glob({ pattern: "**/*.en.md", base: "./content/posts" }),
+	schema: z.strictObject({
+		title: z.string().trim().min(1),
+		description: z.string().trim().min(1),
+	}),
+});
+
 const specCollection = defineCollection({
 	loader: glob({ pattern: "**/*.{md,mdx}", base: "./content/spec" }),
 	schema: z.object({}),
@@ -43,6 +51,7 @@ const momentsCollection = defineCollection({
 
 export const collections = {
 	posts: postsCollection,
+	postTranslations: postTranslationsCollection,
 	spec: specCollection,
 	moments: momentsCollection,
 };

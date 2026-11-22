@@ -1,0 +1,51 @@
+[about]
+zh = "content/spec/about.md"
+en = "content/spec/about.en.md"
+
+[[posts]]
+zh = "content/posts/workflow-v5.md"
+en = "content/posts/workflow-v5.en.md"
+
+[[posts]]
+zh = "content/posts/summary/2024总结.md"
+en = "content/posts/summary/2024总结.en.md"
+
+[[posts]]
+zh = "content/posts/summary/2025寒假总结.md"
+en = "content/posts/summary/2025寒假总结.en.md"
+
+[[posts]]
+zh = "content/posts/summary/2025年度总结.md"
+en = "content/posts/summary/2025年度总结.en.md"
+
+[[posts]]
+zh = "content/posts/summary/2025暑假总结.md"
+en = "content/posts/summary/2025暑假总结.en.md"
+
+[[posts]]
+zh = "content/posts/summary/GBC快闪.md"
+en = "content/posts/summary/GBC快闪.en.md"
+
+[[posts]]
+zh = "content/posts/summary/Linux 使用一周年纪念.md"
+en = "content/posts/summary/Linux 使用一周年纪念.en.md"
+
+[[posts]]
+zh = "content/posts/summary/大二下学期总结.md"
+en = "content/posts/summary/大二下学期总结.en.md"
+
+[[posts]]
+zh = "content/posts/summary/我与我周旋久.md"
+en = "content/posts/summary/我与我周旋久.en.md"
+
+[[posts]]
+zh = "content/posts/summary/摆烂日记.md"
+en = "content/posts/summary/摆烂日记.en.md"
+
+[[posts]]
+zh = "content/posts/yuri/Anime.md"
+en = "content/posts/yuri/Anime.en.md"
+
+[[posts]]
+zh = "content/posts/yuri/百合文盘点.md"
+en = "content/posts/yuri/百合文盘点.en.md"

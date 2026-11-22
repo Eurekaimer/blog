@@ -1,0 +1,53 @@
+---
+import type { LanguageLinks } from "@/utils/content-languages";
+
+interface Props {
+	active: keyof LanguageLinks;
+	hrefs: LanguageLinks;
+}
+
+const { active, hrefs } = Astro.props;
+const languages = [
+	{ key: "zh", lang: "zh-CN", label: "中文" },
+	{ key: "en", lang: "en", label: "EN" },
+] as const;
+---
+
+<nav
+  aria-label={active === "en" ? "Content language" : "内容语言"}
+  class="inline-flex items-center p-0.5 rounded-xl bg-black/5 dark:bg-white/10 border border-(--line-divider) text-xs font-medium shadow-xs"
+>
+  {languages.map(({ key, lang, label }) =>
+    key === active ? (
+      <span class="bilingual-btn" lang={lang} aria-current="page">{label}</span>
+    ) : (
+      <a class="bilingual-btn" lang={lang} hreflang={lang} href={hrefs[key]}>{label}</a>
+    )
+  )}
+</nav>
+
+<style>
+  .bilingual-btn {
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.5rem;
+    color: var(--text-secondary);
+    user-select: none;
+    transition: color 0.2s ease;
+  }
+
+  a.bilingual-btn:hover {
+    color: var(--text-primary);
+  }
+
+  a.bilingual-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  .bilingual-btn[aria-current="page"] {
+    background-color: var(--primary);
+    color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+  }
+</style>

@@ -3,7 +3,7 @@ import QRCode from "qrcode";
 import { onMount } from "svelte";
 import Icon from "@/components/common/Icon.svelte";
 import I18nKey from "../../i18n/i18nKey";
-import { i18n } from "../../i18n/translation";
+import { getTranslation, i18n } from "../../i18n/translation";
 
 export let title: string;
 export let author: string;
@@ -13,6 +13,14 @@ export let coverImage: string | null = null;
 export let url: string;
 export let siteTitle: string;
 export let avatar: string | null = null;
+export let lang: string | undefined = undefined;
+
+function getText(lang: string | undefined) {
+	if (!lang) return i18n;
+	const labels = getTranslation(lang);
+	return (key: I18nKey) => labels[key];
+}
+$: text = getText(lang);
 
 let showModal = false;
 let posterImage: string | null = null;
@@ -390,7 +398,7 @@ async function generatePoster() {
 
 		ctx.fillStyle = "#9ca3af";
 		ctx.font = `${12 * scale}px 'Roboto', sans-serif`;
-		ctx.fillText(i18n(I18nKey.author), authorTextX, textCenterY - 20 * scale);
+		ctx.fillText(text(I18nKey.author), authorTextX, textCenterY - 20 * scale);
 
 		ctx.fillStyle = "#1f2937";
 		ctx.font = `700 ${20 * scale}px 'Roboto', sans-serif`;
@@ -429,7 +437,7 @@ async function generatePoster() {
 
 		ctx.fillStyle = "#9ca3af";
 		ctx.font = `${12 * scale}px 'Roboto', sans-serif`;
-		ctx.fillText(i18n(I18nKey.scanToRead), siteInfoX, textCenterY - 20 * scale);
+		ctx.fillText(text(I18nKey.scanToRead), siteInfoX, textCenterY - 20 * scale);
 
 		ctx.fillStyle = "#1f2937";
 		ctx.font = `700 ${20 * scale}px 'Roboto', sans-serif`;
@@ -485,7 +493,7 @@ function portal(node: HTMLElement) {
   aria-label="Generate Share Poster"
 >
   <Icon icon="material-symbols:share" size="md" />
-  <span>{i18n(I18nKey.shareArticle)}</span>
+  <span>{text(I18nKey.shareArticle)}</span>
 </button>
 
 
@@ -503,7 +511,7 @@ function portal(node: HTMLElement) {
         {:else}
            <div class="flex flex-col items-center gap-3">
              <div class="w-8 h-8 border-2 border-gray-200 rounded-full animate-spin" style="border-top-color: {themeColor}"></div>
-             <span class="text-sm text-gray-500">{i18n(I18nKey.generatingPoster)}</span>
+             <span class="text-sm text-gray-500">{text(I18nKey.generatingPoster)}</span>
            </div>
         {/if}
       </div>
@@ -515,10 +523,10 @@ function portal(node: HTMLElement) {
         >
           {#if copied}
             <Icon icon="material-symbols:check" size="md" />
-            <span>{i18n(I18nKey.copied)}</span>
+            <span>{text(I18nKey.copied)}</span>
           {:else}
             <Icon icon="material-symbols:link" size="md" />
-            <span>{i18n(I18nKey.copyLink)}</span>
+            <span>{text(I18nKey.copyLink)}</span>
           {/if}
         </button>
         <button 
@@ -528,7 +536,7 @@ function portal(node: HTMLElement) {
           disabled={!posterImage}
         >
           <Icon icon="material-symbols:download" size="md" />
-          {i18n(I18nKey.savePoster)}
+          {text(I18nKey.savePoster)}
         </button>
       </div>
     </div>

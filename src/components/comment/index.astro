@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { commentConfig } from "@config/commentConfig";
 import Key from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
-import { removeFileExtension } from "@/utils/url-utils";
+import { getPostUrlBySlug, removeFileExtension } from "@/utils/url-utils";
 import Artalk from "./Artalk.astro";
 import Disqus from "./Disqus.astro";
 import Giscus from "./Giscus.astro";
@@ -29,6 +29,11 @@ const path = customPath
 			: `/${slug}`
 		: `/${slug}`;
 const url = `${Astro.site?.href}${path}`;
+// 双语版本共用原稿的评论与访问量
+const postPath =
+	post?.collection === "posts" && !customPath
+		? new URL(getPostUrlBySlug(post.id), Astro.url).pathname.replace(/\/$/, "")
+		: undefined;
 const postTitle = post && "title" in post.data ? post.data.title : undefined;
 
 // 强制commentService类型为string，避免类型不兼容警告
@@ -56,7 +61,7 @@ let commentService: string = commentConfig?.type || "none";
       </div>
       <!-- 评论内容区域 -->
       <div class="relative z-10 pl-2 pr-2">
-        {commentService === "twikoo" && <Twikoo path={path} />}
+        {commentService === "twikoo" && <Twikoo path={path} postPath={postPath} />}
         {commentService === "waline" && <Waline path={path} />}
         {commentService === "giscus" && <Giscus />}
         {commentService === "disqus" && <Disqus identifier={slug} url={url} title={customTitle || postTitle || slug} />}

@@ -20,7 +20,8 @@ import {
 	MAIN_PANEL_OVERLAPS_BANNER_HEIGHT,
 } from "@/constants/constants";
 import I18nKey from "@/i18n/i18nKey";
-import { i18n } from "@/i18n/translation";
+import { getTranslation, i18n } from "@/i18n/translation";
+import type { LanguageLinks } from "@/utils/content-languages";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
 import { getImageQuality } from "@/utils/image-utils";
 import { getBackgroundImages, isHomePage } from "@/utils/layout-utils";
@@ -43,6 +44,7 @@ interface Props {
 	banner?: string;
 	description?: string;
 	lang?: string;
+	languageLinks?: LanguageLinks;
 	setOGTypeArticle?: boolean;
 	postSlug?: string;
 	headings?: MarkdownHeading[];
@@ -62,11 +64,15 @@ const {
 	banner,
 	description,
 	lang,
+	languageLinks,
 	setOGTypeArticle,
 	postSlug,
 	headings = [],
 	bannerPostMeta,
 } = Astro.props;
+const urlBase = Astro.site ?? Astro.url;
+const bannerLabels = bannerPostMeta && languageLinks && lang === "en" ? getTranslation(lang) : undefined;
+const bannerText = (key: I18nKey) => bannerLabels?.[key] ?? i18n(key);
 
 // 检查背景壁纸模式和是否允许切换
 const isBannerMode = backgroundWallpaper.mode === "banner";
@@ -306,7 +312,16 @@ const bannerCarouselInterval = Math.max(
 )}
 
 <!-- Navbar -->
-<slot slot="head" name="head"></slot>
+<Fragment slot="head">
+  <slot name="head" />
+  {languageLinks && (
+    <>
+      <link rel="canonical" href={new URL(Astro.url.pathname, urlBase).href} />
+      <link rel="alternate" hreflang="zh-CN" href={new URL(languageLinks.zh, urlBase).href} />
+      <link rel="alternate" hreflang="en" href={new URL(languageLinks.en, urlBase).href} />
+    </>
+  )}
+</Fragment>
 <div
     id="top-row"
     class="z-50 pointer-events-none relative transition-all duration-700 mx-auto"
@@ -713,20 +728,20 @@ const bannerCarouselInterval = Math.max(
                     <div class="banner-post-meta-list flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-white/90 text-sm md:text-base">
                         <span class="inline-flex items-center gap-1.5">
                             <Icon name="material-symbols:calendar-month-outline-rounded" class="text-[1.05em]" />
-                            <span>{i18n(I18nKey.publishedAt)} {formatDateToYYYYMMDD(bannerPostMeta.published)}</span>
+                            <span>{bannerText(I18nKey.publishedAt)} {formatDateToYYYYMMDD(bannerPostMeta.published)}</span>
                         </span>
                         {bannerPostMeta.updated &&
                             bannerPostMeta.updated.getTime() !== bannerPostMeta.published.getTime() && (
                                 <span class="inline-flex items-center gap-1.5">
                                     <Icon name="material-symbols:update-rounded" class="text-[1.05em]" />
-                                    <span>{i18n(I18nKey.updatedAt)} {formatDateToYYYYMMDD(bannerPostMeta.updated)}</span>
+                                    <span>{bannerText(I18nKey.updatedAt)} {formatDateToYYYYMMDD(bannerPostMeta.updated)}</span>
                                 </span>
                             )}
                         {typeof bannerPostMeta.words === "number" && (
                             <span class="inline-flex items-center gap-1.5">
                                 <Icon name="material-symbols:ink-pen-outline-rounded" class="text-[1.05em]" />
                                 <span>
-                                    {bannerPostMeta.words} {i18n(bannerPostMeta.words === 1 ? I18nKey.wordCount : I18nKey.wordsCount)}
+                                    {bannerPostMeta.words} {bannerText(bannerPostMeta.words === 1 ? I18nKey.wordCount : I18nKey.wordsCount)}
                                 </span>
                             </span>
                         )}
@@ -734,7 +749,7 @@ const bannerCarouselInterval = Math.max(
                             <span class="inline-flex items-center gap-1.5">
                                 <Icon name="material-symbols:schedule-outline-rounded" class="text-[1.05em]" />
                                 <span>
-                                    {bannerPostMeta.minutes} {i18n(bannerPostMeta.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)} · {i18n(I18nKey.readTime)}
+                                    {bannerPostMeta.minutes} {bannerText(bannerPostMeta.minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)} · {bannerText(I18nKey.readTime)}
                                 </span>
                             </span>
                         )}
@@ -934,7 +949,7 @@ const bannerCarouselInterval = Math.max(
             <div class={footerClassName}>
                 <Footer></Footer>
             </div>
-        </div>
+        </div>
     </div>
 </div>
 

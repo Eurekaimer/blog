@@ -8,6 +8,7 @@
 config/
 ├── index.ts              # 配置索引文件 - 统一导出
 ├── siteConfig.ts         # 站点基础配置
+├── content-languages.toml # About 和文章的中英文原稿配对
 ├── backgroundWallpaper.ts # 背景壁纸配置
 ├── profileConfig.ts      # 用户资料配置
 ├── musicConfig.ts        # 音乐播放器配置
@@ -45,6 +46,7 @@ import { profileConfig } from '@config/profileConfig';
 ## 📋 配置文件列表
 
 - `siteConfig.ts` - 站点基础配置（标题、描述、主题色等）
+- `content-languages.toml` - 双语文件配对，路径相对于仓库根目录，参见 [双语内容说明](../README.md#bilingual-content)。
 - `backgroundWallpaper.ts` - 背景壁纸配置（壁纸模式、图片、横幅文字等）
 - `profileConfig.ts` - 用户资料配置（头像、姓名、社交链接等）
 - `musicConfig.ts` - 音乐播放器配置（支持本地音乐和 Meting API）
