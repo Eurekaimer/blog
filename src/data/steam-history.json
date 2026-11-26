@@ -1831,5 +1831,18 @@
       "name": "Slay the Spire",
       "playtime_forever": 9013
     }
+  },
+  "2026-11-26": {
+    "date": "2026-11-26",
+    "recordedAt": "2026-11-26T00:16:28.111Z",
+    "totalPlayMinutes": 30044,
+    "recentPlayMinutes": 0,
+    "gameCount": 71,
+    "playedGameCount": 36,
+    "topGame": {
+      "appid": 646570,
+      "name": "Slay the Spire",
+      "playtime_forever": 9013
+    }
   }
 }
