@@ -52,6 +52,7 @@ const managerConfigStr = JSON.stringify({
 		pause: i18n(I18nKey.musicPause),
 		progress: i18n(I18nKey.musicProgress),
 		noCover: i18n(I18nKey.musicNoCover),
+		music: i18n(I18nKey.music),
 	},
 });
 ---
@@ -62,6 +63,7 @@ const managerConfigStr = JSON.stringify({
     if (window.__fireflyMusic) return;
 
     var config = JSON.parse(managerConfigStr);
+    window.__fireflyMusicConfig = config;
 
     // ── Helpers ──────────────────────────────────────────────
     function formatTime(seconds) {

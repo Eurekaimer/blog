@@ -13,6 +13,10 @@ declare global {
 		floatingTOCListenersInitialized?: boolean;
 		// biome-ignore lint/suspicious/noExplicitAny: External library
 		spinePlayerInstance?: any;
+		__fireflyMusicConfig?: {
+			showLyrics?: boolean;
+			i18n: Record<string, string>;
+		};
 		pagefind: {
 			search: (query: string) => Promise<{
 				results: Array<{
