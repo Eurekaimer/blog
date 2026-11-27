@@ -148,6 +148,15 @@ if (posterAvatarUrl) {
 	}
 }
 
+// The share poster loads these inside <img>/canvas, so they need the deployment
+// base; remote and data URLs are already absolute.
+const withBase = (value: string | null | undefined) =>
+	!value ||
+	/^(https?:\/\/|data:)/.test(value) ||
+	value.startsWith(import.meta.env.BASE_URL)
+		? (value ?? undefined)
+		: url(value);
+
 dayjs.extend(utc);
 
 const toAbsolute = (value: string) =>
@@ -379,10 +388,10 @@ const relatedPosts = await getRelatedPosts(entry, 5);
                             description={summary}
                             lang={translatedLang}
                             pubDate={formatDateToYYYYMMDD(entry.data.published)}
-                            coverImage={posterCoverUrl}
+                            coverImage={withBase(posterCoverUrl)}
                             url={Astro.url.href}
                             siteTitle={siteConfig.title}
-                            avatar={posterAvatarUrl}
+                            avatar={withBase(posterAvatarUrl)}
                           />
                         )
                       }
@@ -469,10 +478,10 @@ const relatedPosts = await getRelatedPosts(entry, 5);
                             description={summary}
                             lang={translatedLang}
                             pubDate={formatDateToYYYYMMDD(entry.data.published)}
-                            coverImage={posterCoverUrl}
+                            coverImage={withBase(posterCoverUrl)}
                             url={Astro.url.href}
                             siteTitle={siteConfig.title}
-                            avatar={posterAvatarUrl}
+                            avatar={withBase(posterAvatarUrl)}
                           />
                         )
                       }
