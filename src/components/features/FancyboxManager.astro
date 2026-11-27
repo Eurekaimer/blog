@@ -1,11 +1,24 @@
 ---
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "@/styles/fancybox-custom.css";
-// Fancybox 管理器组件
+// Fancybox 管理器组件（库样式与 JS 按需加载）
 ---
 
 <script>
-  let Fancybox: any;
+  import type { FancyboxOptions } from "@fancyapps/ui";
+  import fancyboxCssUrl from "@fancyapps/ui/dist/fancybox/fancybox.css?url";
+
+  let Fancybox: typeof import("@fancyapps/ui").Fancybox;
+
+  function loadStyles() {
+    for (const href of [fancyboxCssUrl]) {
+      if (document.querySelector(`link[data-fancybox-css="${href}"]`)) continue;
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = href;
+      link.dataset.fancyboxCss = href;
+      document.head.appendChild(link);
+    }
+  }
 
   async function setup() {
     const selectors = [
@@ -21,11 +34,13 @@ import "@/styles/fancybox-custom.css";
 
     // 动态导入资源
     if (!Fancybox) {
+      loadStyles();
       const mod = await import("@fancyapps/ui");
       Fancybox = mod.Fancybox;
     }
 
-    // 通用配置
+    // 通用配置。The bundled typings omit documented options such as `preload`,
+    // so the literal is widened to the library's own option type.
     const commonOptions = {
       Thumbs: {
         autoStart: true,
@@ -68,23 +83,25 @@ import "@/styles/fancybox-custom.css";
         minScale: 1,
       },
       caption: false,
-    };
+    } as Partial<FancyboxOptions>;
 
-    // 绑定图片
-    Fancybox.bind(".custom-md img, #post-cover img, .moment-images img", {
+    const imageOptions = {
       ...commonOptions,
       groupAll: true,
       Carousel: {
         transition: "slide",
         preload: 2,
       },
-    });
+    } as Partial<FancyboxOptions>;
+
+    // 绑定图片
+    Fancybox.bind(".custom-md img, #post-cover img, .moment-images img", imageOptions);
 
     // 绑定链接
     Fancybox.bind(".moment-images a[data-fancybox]", {
       ...commonOptions,
-      source: (el: any) => el.getAttribute("data-src") || el.getAttribute("href"),
-    });
+      source: (el: Element) => el.getAttribute("data-src") || el.getAttribute("href"),
+    } as Partial<FancyboxOptions>);
 
     // 绑定其他
     Fancybox.bind("[data-fancybox]:not(.moment-images a)", commonOptions);
