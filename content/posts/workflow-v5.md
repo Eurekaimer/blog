@@ -4,7 +4,7 @@ published: 2025-03-04
 updated: 2026-09-13
 pinned: false
 description: 工作流 v5.2
-image: /assets/images/covers/study-companions.jpg
+image: /assets/images/covers/study-companions.webp
 tags: [学习方法, 笔记管理, 键盘流, Linux]
 category: 工作流
 draft: false

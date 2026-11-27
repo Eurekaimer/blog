@@ -29,7 +29,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 				name: "誰にもなれない私だから",
 				artist: "理名",
 				url: "/assets/music/BV12Y4h6NEok.mp3",
-				cover: "/assets/music/cover/BV12Y4h6NEok.jpg",
+				cover: "/assets/music/cover/BV12Y4h6NEok.webp",
 				lrc: "/assets/music/BV12Y4h6NEok.lrc",
 			},
 		],

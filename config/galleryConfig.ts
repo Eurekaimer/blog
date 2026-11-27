@@ -33,7 +33,7 @@ export const galleryConfig: GalleryConfig = {
 			description: "关于数学研究、理解与 AI 协作的文字摘录。",
 			date: "2026-10-03",
 			tags: ["数学", "人工智能", "摘录"],
-			cover: "/gallery/math-news/math-news-02.png",
+			cover: "/gallery/math-news/math-news-02.webp",
 		},
 		{
 			id: "love-or-game-over",
@@ -49,7 +49,7 @@ export const galleryConfig: GalleryConfig = {
 			description: "《恋より青く》漫画中的画面与对白摘录。",
 			date: "2026-10-03",
 			tags: ["恋より青く", "漫画", "百合"],
-			cover: "/gallery/koi-yori-aoku/koi-yori-aoku-01.png",
+			cover: "/gallery/koi-yori-aoku/koi-yori-aoku-01.webp",
 		},
 		{
 			id: "amayo-no-tsuki",
@@ -57,7 +57,7 @@ export const galleryConfig: GalleryConfig = {
 			description: "《雨夜明月》漫画中的画面与对白摘录。",
 			date: "2026-10-03",
 			tags: ["雨夜明月", "漫画", "百合"],
-			cover: "/gallery/amayo-no-tsuki/amayo-no-tsuki-04.png",
+			cover: "/gallery/amayo-no-tsuki/amayo-no-tsuki-04.webp",
 		},
 		{
 			id: "liz-and-blue-bird",
@@ -66,7 +66,7 @@ export const galleryConfig: GalleryConfig = {
 				"改编自《吹响！上低音号》的剧场版动画，描绘铠冢霙与伞木希美之间纤细摇曳的距离。",
 			date: "2026-09-13",
 			tags: ["莉兹与青鸟", "京都动画"],
-			cover: "/gallery/liz-and-blue-bird/liz-and-blue-bird-18.jpg",
+			cover: "/gallery/liz-and-blue-bird/liz-and-blue-bird-18.webp",
 		},
 	],
 
