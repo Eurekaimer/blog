@@ -52,6 +52,9 @@ const externalFontOrigins = Array.from(
 );
 
 // 生成font-family回退样式
+const formatFallbackFamilies = (families: string[]) =>
+	families.map((family) => (/\s/.test(family) ? `"${family}"` : family)).join(", ");
+
 const generateFontFamilyStyle = () => {
 	if (!fontConfig.enable || !fontConfig.selected) return "";
 
@@ -66,16 +69,19 @@ const generateFontFamilyStyle = () => {
 
 	if (selectedFontFamilies.length === 0) return "";
 
-	const fallbacks = fontConfig.fallback || [];
-	const allFonts = [...selectedFontFamilies, ...fallbacks];
+	const fallbacks = formatFallbackFamilies(fontConfig.fallback || []);
+	const allFonts = [selectedFontFamilies.join(", "), fallbacks]
+		.filter(Boolean)
+		.join(", ");
 
-	return `font-family: ${allFonts.join(", ")};`;
+	return `font-family: ${allFonts};`;
 };
 
 const fontFamilyStyle = generateFontFamilyStyle();
 ---
 
 <!-- 字体 CDN 预连接 -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 {
   externalFontOrigins.map((origin) => (
     <>
@@ -143,7 +149,7 @@ const fontFamilyStyle = generateFontFamilyStyle();
       set:html={`
     :root {
       --font-family-custom: ${selectedFonts.map((font) => `"${font.family}"`).join(", ")};
-      --font-family-fallback: ${(fontConfig.fallback || []).join(", ")};
+      --font-family-fallback: ${formatFallbackFamilies(fontConfig.fallback || [])};
     }
     
     /* 应用自定义字体到body */
@@ -155,9 +161,8 @@ const fontFamilyStyle = generateFontFamilyStyle();
     ${selectedFonts
       .map((font) => {
         return `
-        .font-${font.id},
-        .font-${font.id} * {
-          font-family: "${font.family}", var(--font-family-fallback) !important;
+        .font-${font.id} {
+          font-family: "${font.family}", var(--font-family-fallback, system-ui, sans-serif);
         }
       `;
       })

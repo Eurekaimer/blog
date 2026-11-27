@@ -5,8 +5,8 @@ export const fontConfig = {
 	// 是否预加载字体文件
 	preload: true,
 	// 当前选择的字体，支持多个字体组合
-	// 顺序即优先级：拉丁字符用 Monaspace Radon，中日韩字符回落到 LXGW WenKai
-	selected: ["monaspace-radon", "LXGW"],
+	// 顺序即优先级：拉丁字符/数字用 Kalam，中日韩字符回落到 LXGW WenKai Screen
+	selected: ["kalam", "LXGW"],
 
 	// 字体列表
 	// 推荐使用可靠的 CDN 服务商提供的字体链接，它天然做了按需分片加载，且性能较好
@@ -50,6 +50,15 @@ export const fontConfig = {
 			display: "swap" as const,
 		},
 
+		// Google Fonts - Kalam（手写体，仅拉丁字形）
+		kalam: {
+			id: "kalam",
+			name: "Kalam",
+			src: "https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap",
+			family: "Kalam",
+			display: "swap" as const,
+		},
+
 		// 小米字体 - MiSans Normal
 		"misans-normal": {
 			id: "misans-normal",
@@ -82,21 +91,14 @@ export const fontConfig = {
 		//我自己加的
 		LXGW: {
 			id: "LXGW",
-			name: "LXGW",
-			src: "https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-web/lxgwwenkaiscreen/result.css",
+			name: "LXGW WenKai Screen",
+			src: "https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont/style.css",
 			family: "LXGW WenKai Screen",
-			weight: 600,
+			weight: 400,
 			display: "swap" as const,
 		},
 	},
 
 	// 全局字体回退
-	fallback: [
-		"system-ui",
-		"-apple-system",
-		"BlinkMacSystemFont",
-		"Segoe UI",
-		"Roboto",
-		"sans-serif",
-	],
+	fallback: ["PingFang SC", "Microsoft YaHei", "sans-serif"],
 };
