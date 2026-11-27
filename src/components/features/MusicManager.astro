@@ -100,6 +100,8 @@ const managerConfigStr = JSON.stringify({
     var audio = document.createElement('audio');
     audio.crossOrigin = 'anonymous';
     audio.style.display = 'none';
+    // Nothing is fetched until the listener actually presses play.
+    audio.preload = 'none';
     document.body.appendChild(audio);
 
     // ── State ────────────────────────────────────────────────
@@ -202,12 +204,21 @@ const managerConfigStr = JSON.stringify({
     }
 
     // ── Track loading ────────────────────────────────────────
+    // The source is only attached when playback starts, so a page view never
+    // downloads the audio file; re-selecting a track that is already loaded
+    // only rewires the element when the URL actually changed.
+    function syncSource(track) {
+        if (!track || !track.url) return false;
+        if (audio.getAttribute('src') !== track.url) audio.src = track.url;
+        return true;
+    }
+
     function loadTrack(index, autoPlay) {
         if (index < 0 || index >= state.playlist.length) return;
         state.currentIndex = index;
         var track = state.playlist[index];
 
-        audio.src = track.url;
+        if (autoPlay) syncSource(track);
 
         loadLyrics(track);
 
@@ -229,6 +240,7 @@ const managerConfigStr = JSON.stringify({
     // ── Playback controls ────────────────────────────────────
     function togglePlay() {
         if (audio.paused) {
+            if (!syncSource(state.playlist[state.currentIndex])) return;
             audio.play().then(function () {
                 state.isPlaying = true;
                 emit('fm:play-state', { isPlaying: true });
