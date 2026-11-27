@@ -26,6 +26,7 @@
 - `pnpm exec node scripts/test-site-activity.mjs` covers activity-date boundaries. `pnpm exec node scripts/test-markdown-highlight.mjs` exercises the installed Astro Markdown compiler for delimiter, escape, nesting, code, math, and link semantics.
 - `pnpm build` runs icon generation, local koma-bell synchronization, Steam refresh, Astro, and Pagefind. For non-preprocessing verification use `pnpm astro build` then `pnpm exec pagefind --site dist`; network integrations may still run. Never commit credentials or incidental generated snapshots.
 - Preview with `pnpm dev` (Astro dev, `--port 4321 --host 127.0.0.1`) at <http://127.0.0.1:4321/blog/>. `base` is `/blog`, so a plain static server must expose `dist` under `/blog/`; mounting `dist` at the root breaks every `/_astro/` and content-image URL. `pnpm preview` exits with SIGSEGV (139) on this machine.
+- Payload invariants: raster assets under `public/gallery`, `public/assets/images`, and `public/assets/music/cover` are WebP (convert, then keep the WebP only if smaller than the original); Fancybox JS and `fancybox.css` load on demand, so the lightbox stylesheet must not return to the page bundle, while `src/styles/fancybox-custom.css` stays in it; `MusicPlayer.astro` ships one bundled module that initialises every `[data-music-widget]` root and reads `window.__fireflyMusicConfig` published by `MusicManager` — never re-inline it per instance with `define:vars`.
 
 ## Deferred work
 
