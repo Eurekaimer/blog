@@ -150,22 +150,47 @@ if (posterAvatarUrl) {
 
 dayjs.extend(utc);
 
+const toAbsolute = (value: string) =>
+	/^https?:\/\//.test(value)
+		? value
+		: new URL(url(value), Astro.site).toString();
+
+const ogImagePath = `/og/${entry.id}.png`;
+const jsonLdImage = siteConfig.generateOgImages
+	? toAbsolute(ogImagePath)
+	: processedImage
+		? toAbsolute(processedImage)
+		: undefined;
+
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "BlogPosting",
 	headline: title,
 	description: summary,
 	keywords: entry.data.tags,
+	...(jsonLdImage ? { image: [jsonLdImage] } : {}),
 	author: {
 		"@type": "Person",
 		name: profileConfig.name,
 		url: Astro.site,
 	},
+	publisher: {
+		"@type": "Organization",
+		name: siteConfig.title,
+		logo: {
+			"@type": "ImageObject",
+			url: toAbsolute("/favicon/favicon-light-192.png"),
+		},
+	},
 	datePublished: formatDateToYYYYMMDD(entry.data.published),
+	dateModified: formatDateToYYYYMMDD(entry.data.updated || entry.data.published),
+	mainEntityOfPage: {
+		"@type": "WebPage",
+		"@id": toAbsolute(Astro.url.pathname),
+	},
 	inLanguage: lang
 		? lang.replace("_", "-")
 		: siteConfig.lang.replace("_", "-"),
-	// TODO include cover image here
 };
 
 const relatedPosts = await getRelatedPosts(entry, 5);

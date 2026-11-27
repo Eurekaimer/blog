@@ -156,6 +156,7 @@ const siteLang = lang.replace("_", "-");
       name="twitter:description"
       content={description || siteConfig.description || pageTitle}
     />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
 
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
