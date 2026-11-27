@@ -56,7 +56,7 @@ import { profileConfig } from '@config/profileConfig';
 - `licenseConfig.ts` - 许可证配置（CC 协议等）
 - `footerConfig.ts` - 页脚配置（HTML 注入等）
 - `expressiveCodeConfig.ts` - 代码高亮配置（主题等）
-- `fontConfig.ts` - 字体配置（字体族、大小等）
+- `fontConfig.ts` - 字体配置：正文以 Kalam 渲染拉丁字母与数字，CJK 回退到 LXGW WenKai Screen，另有字体族与回退栈。
 - `sidebarConfig.ts` - 侧边栏配置（组件布局等）
 - `navBarConfig.ts` - 导航栏配置（链接、样式等）
 - `pioConfig.ts` - Pio 模型配置（Spine、Live2D 等）

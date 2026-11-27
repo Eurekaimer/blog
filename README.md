@@ -13,6 +13,7 @@ An [Astro](https://astro.build/) static site based on [Firefly](https://github.c
 - Friends, guestbook, sponsor, and About pages, plus generated Open Graph images.
 - Light and dark themes with switchable banner and layout modes.
 - Inline `==highlighted==` marks rendered as semantic highlights in both themes.
+- Site text pairs Kalam for Latin letters and digits with LXGW WenKai Screen for CJK, while code, math, and icon fonts keep their own families.
 
 Steam trend windows summarize the nearest available snapshots rather than fixed 7- or 30-day ranges.
 
@@ -22,6 +23,10 @@ Steam trend windows summarize the nearest available snapshots rather than fixed 
 - [Build workflow](.github/workflows/build.yml): builds Astro for `master` pushes and pull requests.
 - [Snapshot workflow](.github/workflows/update-snapshots.yml): refreshes Steam history and Bangumi manga snapshots, then commits the updated data files. Its schedule, `10 16 */4 * *`, runs every fourth day-of-month at 16:10 UTC (days 1, 5, 9, and so on), not daily or at a guaranteed 96-hour interval.
 - [Quality workflow](.github/workflows/biome.yml): currently reports that checks are disabled; it does not run quality checks.
+
+## Local preview
+
+Run `pnpm dev` and open <http://127.0.0.1:4321/blog/>. The site sets `base: "/blog"`, so any other server must expose `dist` under `/blog/`; serving `dist` at the domain root returns 404 for every `/_astro/` and content-image URL. On this machine `pnpm preview` exits with SIGSEGV (139), so use the dev server for visual inspection. Pagefind search needs `pnpm build`, or `pnpm exec pagefind --site dist` after `pnpm astro build`.
 
 ## Contributing
 

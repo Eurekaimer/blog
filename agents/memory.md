@@ -12,7 +12,7 @@
 - Keep agent documentation in the visible root `agents/` directory, not a dot-prefixed directory, and track it together with `AGENTS.md`.
 - Global Markdown `==text==` highlights use the syntax-aware `remarkHighlight` plugin and bright-yellow `mark` styling in both themes. Preserve escaped delimiters, code, math, links, and authored wording. Keep authored cover-library assets even when not yet referenced.
 - The navbar player loops the local recording of 「誰にもなれない私だから」 by 理名. Keep the MP3, cover, and Japanese–Chinese LRC in `public/assets/music/` and set the track in `config/musicConfig.ts`. Both languages share each cue, timed to the supplied Budokan recording (BV12Y4h6NEok), not the studio release. Meting remains available as an optional template mode.
-- Site Latin text uses Monaspace Radon (Fontsource CSS via jsDelivr, pinned) ahead of LXGW WenKai Screen for CJK, per explicit user approval. Code blocks keep JetBrains Mono Variable; do not reselect the site font without asking.
+- Site Latin text and digits use Kalam (Google Fonts CSS, weights 400/700) ahead of LXGW WenKai Screen (`lxgw-wenkai-screen-webfont` via jsDelivr) for CJK, per explicit user approval on 2026-11-27. Code and KaTeX keep their own families, so `FontManager` must not emit descendant `!important` font rules. Do not reselect the site font without asking.
 
 ## Architecture and verification
 
@@ -25,6 +25,7 @@
 - `pnpm test:content` checks real rendered article pages; the server must be running. `pnpm test:authoring` tests nested creation and overwrite protection in temporary directories. `pnpm test:data` covers Steam-history behavior. Use browser evidence for archive hydration, filters, themes, keyboard navigation, and mobile layout.
 - `pnpm exec node scripts/test-site-activity.mjs` covers activity-date boundaries. `pnpm exec node scripts/test-markdown-highlight.mjs` exercises the installed Astro Markdown compiler for delimiter, escape, nesting, code, math, and link semantics.
 - `pnpm build` runs icon generation, local koma-bell synchronization, Steam refresh, Astro, and Pagefind. For non-preprocessing verification use `pnpm astro build` then `pnpm exec pagefind --site dist`; network integrations may still run. Never commit credentials or incidental generated snapshots.
+- Preview with `pnpm dev` (Astro dev, `--port 4321 --host 127.0.0.1`) at <http://127.0.0.1:4321/blog/>. `base` is `/blog`, so a plain static server must expose `dist` under `/blog/`; mounting `dist` at the root breaks every `/_astro/` and content-image URL. `pnpm preview` exits with SIGSEGV (139) on this machine.
 
 ## Deferred work
 
