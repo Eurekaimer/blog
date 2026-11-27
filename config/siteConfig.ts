@@ -106,8 +106,8 @@ export const siteConfig: SiteConfig = {
 	// 是否开启分享海报生成功能
 	sharePoster: true,
 
-	// OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
-	generateOgImages: true,
+	// 分享卡片（OG 图）的默认回退：文章没有封面、页面没有横幅时使用这张图
+	defaultOgImage: "https://img.eurekaimer.icu/20261018100052-0003.webp",
 
 	// bangumi配置
 	bangumi: {

@@ -38,9 +38,10 @@ interface Props {
 	lang?: string;
 	setOGTypeArticle?: boolean;
 	postSlug?: string;
+	ogImage?: string;
 }
 
-let { title, banner, description, lang, setOGTypeArticle, postSlug } =
+let { title, banner, description, lang, setOGTypeArticle, postSlug, ogImage } =
 	Astro.props;
 
 // apply a class to the body element to decide the height of the banner, only used for initial page load
@@ -77,9 +78,19 @@ if (title) {
 		: siteConfig.title;
 }
 
+// Social cards reuse the page's own artwork: the post cover, then the banner,
+// then the site-wide default. Banner values may be src-relative asset paths
+// that only resolve inside an <img>, so anything not already a URL or a public
+// path falls through to the default.
+const ogImageSource = [ogImage, banner].find(
+	(candidate): candidate is string =>
+		!!candidate && /^(https?:\/\/|\/)/.test(candidate),
+) ?? siteConfig.defaultOgImage;
 let ogImageUrl: string | undefined;
-if (siteConfig.generateOgImages && postSlug) {
-	ogImageUrl = new URL(url(`/og/${postSlug}.png`), Astro.site).toString();
+if (ogImageSource) {
+	ogImageUrl = /^https?:\/\//.test(ogImageSource)
+		? ogImageSource
+		: new URL(url(ogImageSource), Astro.site).href;
 }
 
 const favicons: Favicon[] =

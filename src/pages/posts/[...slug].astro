@@ -155,12 +155,9 @@ const toAbsolute = (value: string) =>
 		? value
 		: new URL(url(value), Astro.site).toString();
 
-const ogImagePath = `/og/${entry.id}.png`;
-const jsonLdImage = siteConfig.generateOgImages
-	? toAbsolute(ogImagePath)
-	: processedImage
-		? toAbsolute(processedImage)
-		: undefined;
+const coverImage =
+	posterCoverUrl || processedImage || siteConfig.defaultOgImage;
+const jsonLdImage = coverImage ? toAbsolute(coverImage) : undefined;
 
 const jsonLd = {
 	"@context": "https://schema.org",
@@ -204,6 +201,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
   languageLinks={languageLinks}
   setOGTypeArticle={true}
   postSlug={entry.id}
+  ogImage={coverImage}
   headings={headings}
   bannerPostMeta={bannerPostMeta}
 >

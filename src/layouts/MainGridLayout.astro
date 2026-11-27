@@ -47,6 +47,7 @@ interface Props {
 	languageLinks?: LanguageLinks;
 	setOGTypeArticle?: boolean;
 	postSlug?: string;
+	ogImage?: string;
 	headings?: MarkdownHeading[];
 	bannerPostMeta?: {
 		title: string;
@@ -67,6 +68,7 @@ const {
 	languageLinks,
 	setOGTypeArticle,
 	postSlug,
+	ogImage,
 	headings = [],
 	bannerPostMeta,
 } = Astro.props;
@@ -301,7 +303,7 @@ const bannerCarouselInterval = Math.max(
 );
 ---
 
-<Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle} postSlug={postSlug}>
+<Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle} postSlug={postSlug} ogImage={ogImage}>
 
 
 <!-- 为全屏壁纸模式添加body类 -->

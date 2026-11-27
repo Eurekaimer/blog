@@ -60,7 +60,6 @@ export type SiteConfig = {
 		topLimit?: number; // 最常玩游戏展示数量
 	};
 
-	generateOgImages: boolean;
 	favicon: Array<{
 		src: string;
 		theme?: "light" | "dark";
@@ -84,6 +83,7 @@ export type SiteConfig = {
 	showLastModified: boolean; // 控制"上次编辑"卡片显示的开关
 	outdatedThreshold?: number; // 文章过期阈值（天数），超过此天数才显示"上次编辑"卡片
 	sharePoster?: boolean; // 是否显示分享海报按钮
+	defaultOgImage?: string; // 分享卡片默认回退图
 
 	// 页面开关配置
 	pages: {

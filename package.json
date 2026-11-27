@@ -64,7 +64,6 @@
 		"remark-math": "^6.0.0",
 		"remark-sectionize": "^2.1.0",
 		"sanitize-html": "^2.17.2",
-		"satori": "^0.19.2",
 		"sharp": "^0.34.5",
 		"smol-toml": "1.6.0",
 		"stylus": "^0.64.0",

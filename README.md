@@ -10,7 +10,7 @@ An [Astro](https://astro.build/) static site based on [Firefly](https://github.c
 - Post cards show the modification date alongside the publication date when the post was updated later.
 - Short-form posts, photo galleries with a lightbox, and Bangumi collection pages.
 - Steam library and playtime statistics backed by historical snapshots.
-- Friends, guestbook, sponsor, and About pages, plus generated Open Graph images.
+- Friends, guestbook, sponsor, and About pages; post covers double as Open Graph images, with a site-wide fallback.
 - Light and dark themes with switchable banner and layout modes.
 - Inline `==highlighted==` marks rendered as semantic highlights in both themes.
 - Site text pairs Kalam for Latin letters and digits with LXGW WenKai Screen for CJK, while code, math, and icon fonts keep their own families.
